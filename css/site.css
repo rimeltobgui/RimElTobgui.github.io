@@ -356,3 +356,4 @@ footer a:hover { color: #FFFFFF; }
 .thread img { height: 210px; }
 .list.teach .where { display: block; }
 .terms-list { display: block; margin-top: 4px; font-size: 15px; color: var(--ink-2); }
+.video-sub { margin: 0 0 12px; font-family: var(--display); font-weight: 400; font-size: 24px; color: var(--ink); }
