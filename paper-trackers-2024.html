@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Towards Efficient Underwater Robotic Swarms: Edge-Based Comparative Analysis of Multi-Object Trackers · Rim ElTobgui</title>
+<meta name="description" content="Compares nano detectors and tracking-by-detection trackers on DanceTrack and BrackishMOT across GPU, CPU and Raspberry Pi 4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html">Rim ElTobgui</a>
+    <div class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#posters">Posters</a>
+      <a href="index.html#news">News</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="scholar" href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Scholar</a>
+      <a class="scholar" href="https://github.com/rimeltobgui">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-band paper-band">
+<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="wrap hero-wrap paper-head">
+  <a class="back" href="index.html#publications">All publications</a>
+  <div class="paper-top">
+    <div class="paper-meta">
+      <div class="tags"><span class="tag">Conference</span><span class="tag">2024</span></div>
+      <h1>Towards Efficient Underwater Robotic Swarms: Edge-Based Comparative Analysis of Multi-Object Trackers</h1>
+      <p class="authors"><strong>R. ElTobgui</strong>, F. Zayer, S. Iacoponi, G. De Masi, F. Renda, J. Dias</p>
+      <p class="venue">OCEANS 2024, Singapore</p>
+      <p class="paper-sum">Compares nano detectors and tracking-by-detection trackers on DanceTrack and BrackishMOT across GPU, CPU and Raspberry Pi 4.</p>
+      <div class="actions"><a class="btn btn-primary" href="https://doi.org/10.1109/OCEANS51537.2024.10682269">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/icar2023.pdf">Poster (ICAR 2023)</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
+    </div>
+    <figure class="paper-hero-fig"><img src="img/q-brackish.jpg" alt="Underwater frame with many small fish, each in a box with an ID number"></figure>
+  </div>
+</div>
+
+</header>
+
+<main>
+<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
+<h2 class="section-title">Overview</h2>
+<div class="spot paper-spot">
+      <div class="spot-text">
+        <p class="over">Swarm behaviours require each agent to detect and track its neighbours on embedded hardware. Three nano detectors (YOLOv5n, YOLOv8n, YOLOXn) are paired with two trackers (ByteTrack, OC-SORT) and evaluated for accuracy and speed on a GPU, a laptop CPU and a Raspberry Pi 4.</p>
+        <p class="over">YOLOv5n yields the fastest pipelines on the Pi. YOLOv8n is the most accurate on DanceTrack and YOLOXn on BrackishMOT.</p>
+        <div class="stats">
+          <div class="stat"><b>6 × 3</b><span>Detector-tracker pairs × devices</span><small>DanceTrack and BrackishMOT</small></div>
+          <div class="stat"><b>1.45 FPS</b><span>Fastest on a Raspberry Pi 4</span><small>BrackishMOT, YOLOv5n + ByteTrack</small></div>
+          <div class="stat"><b>72.56 FPS</b><span>Fastest on GPU</span><small>DanceTrack, YOLOv8n + OC-SORT</small></div>
+        </div>
+      </div>
+      <div class="spot-visual">
+        <figure class="fig">
+          <img src="img/oceans-dancetrack.png" alt="Grouped bar chart from the paper: HOTA, MOTA, IDF1 and FPS on GPU, CPU and Raspberry Pi 4 for six detector-tracker pairs on DanceTrack" loading="lazy" width="1400" height="965">
+          <figcaption>DanceTrack results from the paper: accuracy (HOTA, MOTA, IDF1) and speed per device.</figcaption>
+        </figure>
+      </div>
+    </div>
+</div></section>
+
+<section class="section samples-section wavy" id="results"><div class="wrap"><h2 class="section-title">Qualitative results</h2>
+    <div class="sample-group">
+      <h3>Tracking on BrackishMOT</h3>
+      <div class="sample-wide">
+        <figure class="sample"><img src="img/q-brackish.jpg" alt="Dark green underwater frame with dozens of small fish, each in a red box with an ID number" loading="lazy" width="960" height="544"></figure>
+        <div class="sample-side">
+          <p>ByteTrack output on a BrackishMOTSynth frame with many small, visually similar fish.</p>
+          <p class="sample-note">Homogeneous appearance makes identity association the main difficulty, which motivates its use as an underwater benchmark.</p>
+          <a href="posters/icar2023.pdf">ICAR 2023 poster</a>
+        </div>
+      </div>
+    </div>
+</div></section>
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Video</h2>
+<div class="paper-video"><video controls preload="none" poster="img/thumb-oceans2024.jpg"><source src="video/oceans2024.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 4:53. Captions are included in the video.</p></div>
+</div></section>
+
+<section class="section" id="cite" style="padding-top: 24px"><div class="wrap"><h2 class="section-title">Cite</h2>
+<div class="bibbox"><pre>@inproceedings{eltobgui2024trackers,
+  title     = {Towards Efficient Underwater Robotic Swarms: Edge-Based Comparative Analysis of Multi-Object Trackers},
+  author    = {ElTobgui, Rim and Zayer, Fakhreddine and Iacoponi, Saverio and De Masi, Giulia and Renda, Federico and Dias, Jorge},
+  booktitle = {OCEANS 2024 - Singapore},
+  year      = {2024},
+  doi       = {10.1109/OCEANS51537.2024.10682269}
+}</pre><button type="button" class="copy">Copy</button></div></div></section>
+</main>
+
+<footer id="contact">
+  <svg class="foot-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path class="w2" d="M0,30 C240,64 480,0 760,34 C1020,64 1240,14 1440,40 L1440,80 L0,80 Z"/><path class="w1" d="M0,44 C200,18 440,70 720,46 C1000,22 1220,66 1440,48 L1440,80 L0,80 Z"/></svg>
+  <div class="wrap">
+    <div style="flex: 1 1 420px; min-width: 0">
+      <h2>Contact</h2>
+      <p>For research collaboration and academic inquiries.</p>
+      <ul class="emails">
+        <li><a href="mailto:rim.eltobgui@gmail.com">rim.eltobgui@gmail.com</a><button type="button" class="copy-mail" data-mail="rim.eltobgui@gmail.com">Copy</button></li>
+        <li><a href="mailto:100063155@ku.ac.ae">100063155@ku.ac.ae</a><span class="mail-note">Khalifa University</span><button type="button" class="copy-mail" data-mail="100063155@ku.ac.ae">Copy</button></li>
+      </ul>
+      <div class="foot-links">
+        <a href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/rimeltobgui">GitHub</a>
+        <a href="https://www.linkedin.com/in/rimeltobgui">LinkedIn</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 320px; min-width: 0">
+      <p>Khalifa University Center for Autonomous Robotic Systems (KUCARS)</p>
+      <p>Abu Dhabi, United Arab Emirates</p>
+    </div>
+  </div>
+  <div class="copyright"><div class="wrap">© 2026 Rim ElTobgui</div></div>
+</footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('.pub');
+  var count = document.getElementById('pub-count');
+  function apply(filter) {
+    var n = 0;
+    pubs.forEach(function (p) {
+      var show = filter === 'all' || p.getAttribute('data-type') === filter;
+      p.hidden = !show;
+      if (show) n++;
+    });
+    count.textContent = n + (n === 1 ? ' paper' : ' papers');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === filter ? 'true' : 'false'); });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter')); }); });
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('pre').textContent;
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  document.querySelectorAll('.copy-mail').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(btn.getAttribute('data-mail')).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  // Opening a video link plays nothing by itself; reset the filter so linked papers are visible.
+  document.querySelectorAll('a[href^="#pub-"]').forEach(function (a) {
+    a.addEventListener('click', function () { apply('all'); });
+  });
+})();
+</script>
+</body>
+</html>

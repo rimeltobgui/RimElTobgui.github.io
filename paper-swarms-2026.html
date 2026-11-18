@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach · Rim ElTobgui</title>
+<meta name="description" content="Monocular detection, tracking and keypoint-based relative localization for H-SURF robotic fish, validated against motion capture and deployed on a Raspberry Pi 4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html">Rim ElTobgui</a>
+    <div class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#posters">Posters</a>
+      <a href="index.html#news">News</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="scholar" href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Scholar</a>
+      <a class="scholar" href="https://github.com/rimeltobgui">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-band paper-band">
+<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="wrap hero-wrap paper-head">
+  <a class="back" href="index.html#publications">All publications</a>
+  <div class="paper-top">
+    <div class="paper-meta">
+      <div class="tags"><span class="tag">Journal</span><span class="tag">2026</span></div>
+      <h1>Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach</h1>
+      <p class="authors"><strong>R. ElTobgui</strong>, S. Iacoponi, F. Renda, G. De Masi, J. Dias</p>
+      <p class="venue">IEEE Journal of Oceanic Engineering, 2026</p>
+      <p class="paper-sum">Monocular detection, tracking and keypoint-based relative localization for H-SURF robotic fish, validated against motion capture and deployed on a Raspberry Pi 4.</p>
+      <div class="actions"><a class="btn btn-primary" href="https://doi.org/10.1109/JOE.2026.3678798">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/iros2024.pdf">Poster (IROS 2024)</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
+    </div>
+    <figure class="paper-hero-fig"><img src="img/hsurf-render-2.jpg" alt="Illustration of two H-SURF robots over a coral reef"><figcaption>Two H-SURF robots (illustration).</figcaption></figure>
+  </div>
+</div>
+
+</header>
+
+<main>
+<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
+<h2 class="section-title">Overview</h2>
+<div class="spot paper-spot">
+      <div class="spot-text">
+        <p class="over">Each H-SURF robotic fish carries a monocular camera and a Raspberry Pi 4. The pipeline detects and tracks neighbouring agents and estimates body keypoints. A closed-form geometric model converts the keypoints into relative depth and heading without GPS or acoustic communication.</p>
+        <p class="over">Estimates are validated in a pool against OptiTrack motion capture, and the models are converted and quantized for onboard execution.</p>
+        <div class="stats">
+          <div class="stat"><b>17.18°</b><span>Mean heading error</span><small>within 1.5 m</small></div>
+          <div class="stat"><b>24.45 cm</b><span>Mean depth error</span><small>within 1.5 m</small></div>
+          <div class="stat"><b>2.06 FPS</b><span>Tracking on a Raspberry Pi 4</span><small>ONNX, YOLOv5n + ByteTrack</small></div>
+        </div>
+      </div>
+      <div class="spot-visual">
+        <figure class="fig">
+          <img src="img/loc-geom.png" alt="Diagram of an observer camera viewing a robotic fish, with aperture angle, keypoint distances and real height used to compute depth" loading="lazy" width="620" height="436">
+          <figcaption>Depth and heading come from keypoint geometry and the camera's field of view.</figcaption>
+        </figure>
+        <figure class="chart">
+          <h4>Tracking speed on a Raspberry Pi 4, by model format</h4>
+          <p>Frames per second, YOLOv5n + ByteTrack. Higher is faster.</p>
+          <svg viewBox="0 0 520 214" role="img" aria-label="PyTorch 1.18, ONNX 2.06, ONNX UInt8 1.86, TFLite Float32 1.13, TFLite Int8 1.79 frames per second">
+            <line class="axis" x1="130" y1="0" x2="130" y2="206"/>
+            <g class="row"><title>PyTorch: 1.18 FPS</title><text x="120" y="25" text-anchor="end">PyTorch</text><rect class="bar" x="132" y="6" width="162" height="28" rx="4"/><text class="val" x="302" y="25">1.18</text></g>
+            <g class="row"><title>ONNX: 2.06 FPS</title><text x="120" y="67" text-anchor="end">ONNX</text><rect class="bar key" x="132" y="48" width="283" height="28" rx="4"/><text class="val" x="423" y="67">2.06</text></g>
+            <g class="row"><title>ONNX UInt8: 1.86 FPS</title><text x="120" y="109" text-anchor="end">ONNX UInt8</text><rect class="bar" x="132" y="90" width="256" height="28" rx="4"/><text class="val" x="396" y="109">1.86</text></g>
+            <g class="row"><title>TFLite Float32: 1.13 FPS</title><text x="120" y="151" text-anchor="end">TFLite F32</text><rect class="bar" x="132" y="132" width="155" height="28" rx="4"/><text class="val" x="295" y="151">1.13</text></g>
+            <g class="row"><title>TFLite Int8: 1.79 FPS</title><text x="120" y="193" text-anchor="end">TFLite Int8</text><rect class="bar" x="132" y="174" width="246" height="28" rx="4"/><text class="val" x="386" y="193">1.79</text></g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+</div></section>
+
+<section class="section samples-section wavy" id="results"><div class="wrap"><h2 class="section-title">Qualitative results</h2>
+    <div class="sample-group">
+      <h3>Multi-object tracking of H-SURF agents</h3>
+      <div class="sample-grid two">
+        <figure class="sample"><img src="img/q-trk1.jpg" alt="Two robotic fish in a pool, boxed and labelled id 39 (left) and id 34 (right)" loading="lazy" width="640" height="409"><figcaption><span class="lbl">Frame A</span>Two H-SURF agents are detected and assigned IDs 39 and 34.</figcaption></figure>
+        <figure class="sample"><img src="img/q-trk2.jpg" alt="The same two fish after swapping places, still labelled id 34 and id 39" loading="lazy" width="640" height="409"><figcaption><span class="lbl">Frame B</span>After the agents cross, both identities are preserved.</figcaption></figure>
+      </div>
+      <h3 class="sub">Relative localization: success and failure cases</h3>
+      <div class="sample-grid three">
+        <figure class="sample"><img src="img/q-loc-ok.jpg" alt="Robotic fish with keypoints and an overlay reading heading 2 degrees, depth 44 cm" loading="lazy" width="860" height="591"><figcaption><span class="lbl ok">Success</span>True depth 54 cm, heading 0°. Predicted 44 cm, 2°.</figcaption></figure>
+        <figure class="sample"><img src="img/q-loc-a.jpg" alt="Robotic fish seen from an oblique side angle with estimated axes" loading="lazy" width="540" height="372"><figcaption><span class="lbl fail">Failure A</span>Oblique view with ambiguous LED keypoints. Heading error 57.1°, depth error 6.5 cm.</figcaption></figure>
+        <figure class="sample"><img src="img/q-loc-b.jpg" alt="Robotic fish seen nearly head-on in low contrast" loading="lazy" width="540" height="371"><figcaption><span class="lbl fail">Failure B</span>Near-frontal view with reflections and low contrast. Heading error 21.8°, depth error 37.5 cm.</figcaption></figure>
+      </div>
+    </div>
+</div></section>
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Video</h2>
+<div class="paper-video"><video controls preload="none" poster="img/thumb-joe2026.jpg"><source src="video/joe2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:41. Captions are included in the video.</p></div>
+</div></section>
+
+<section class="section" id="cite" style="padding-top: 24px"><div class="wrap"><h2 class="section-title">Cite</h2>
+<div class="bibbox"><pre>@article{eltobgui2026swarms,
+  title   = {Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach},
+  author  = {ElTobgui, Rim and Iacoponi, Saverio and Renda, Federico and De Masi, Giulia and Dias, Jorge},
+  journal = {IEEE Journal of Oceanic Engineering},
+  year    = {2026},
+  doi     = {10.1109/JOE.2026.3678798}
+}</pre><button type="button" class="copy">Copy</button></div></div></section>
+</main>
+
+<footer id="contact">
+  <svg class="foot-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path class="w2" d="M0,30 C240,64 480,0 760,34 C1020,64 1240,14 1440,40 L1440,80 L0,80 Z"/><path class="w1" d="M0,44 C200,18 440,70 720,46 C1000,22 1220,66 1440,48 L1440,80 L0,80 Z"/></svg>
+  <div class="wrap">
+    <div style="flex: 1 1 420px; min-width: 0">
+      <h2>Contact</h2>
+      <p>For research collaboration and academic inquiries.</p>
+      <ul class="emails">
+        <li><a href="mailto:rim.eltobgui@gmail.com">rim.eltobgui@gmail.com</a><button type="button" class="copy-mail" data-mail="rim.eltobgui@gmail.com">Copy</button></li>
+        <li><a href="mailto:100063155@ku.ac.ae">100063155@ku.ac.ae</a><span class="mail-note">Khalifa University</span><button type="button" class="copy-mail" data-mail="100063155@ku.ac.ae">Copy</button></li>
+      </ul>
+      <div class="foot-links">
+        <a href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/rimeltobgui">GitHub</a>
+        <a href="https://www.linkedin.com/in/rimeltobgui">LinkedIn</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 320px; min-width: 0">
+      <p>Khalifa University Center for Autonomous Robotic Systems (KUCARS)</p>
+      <p>Abu Dhabi, United Arab Emirates</p>
+    </div>
+  </div>
+  <div class="copyright"><div class="wrap">© 2026 Rim ElTobgui</div></div>
+</footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('.pub');
+  var count = document.getElementById('pub-count');
+  function apply(filter) {
+    var n = 0;
+    pubs.forEach(function (p) {
+      var show = filter === 'all' || p.getAttribute('data-type') === filter;
+      p.hidden = !show;
+      if (show) n++;
+    });
+    count.textContent = n + (n === 1 ? ' paper' : ' papers');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === filter ? 'true' : 'false'); });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter')); }); });
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('pre').textContent;
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  document.querySelectorAll('.copy-mail').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(btn.getAttribute('data-mail')).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  // Opening a video link plays nothing by itself; reset the filter so linked papers are visible.
+  document.querySelectorAll('a[href^="#pub-"]').forEach(function (a) {
+    a.addEventListener('click', function () { apply('all'); });
+  });
+})();
+</script>
+</body>
+</html>

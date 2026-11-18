@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rim ElTobgui</title>
+<meta name="description" content="Rim ElTobgui, PhD candidate at KUCARS, Khalifa University. Vision-language models, edge perception and underwater robotic swarms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Rim ElTobgui</a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#posters">Posters</a>
+      <a href="#news">News</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+      <a class="scholar" href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Scholar</a>
+      <a class="scholar" href="https://github.com/rimeltobgui">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero-band">
+<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="wrap hero-wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">PhD Candidate · KUCARS, Khalifa University</p>
+      <h1>Rim ElTobgui</h1>
+      <p class="tagline">Scene Understanding for Autonomous Marine Robots</p>
+      <p class="intro">My research explores how marine robots can perceive their surroundings, make autonomous decisions, and work together. It spans underwater object detection, tracking, and relative localization, alongside vision–language approaches to semantic scene understanding, with an emphasis on efficient onboard deployment. I investigate how this understanding can guide adaptive behavior planning and multi-robot coordination, with applications in ecological monitoring and subsea infrastructure inspection.</p>
+      <p class="advisors">Supervised by Prof. Jorge Dias · Co-advised by Dr. Federico Renda and Dr. Giulia De Masi</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>
+          Google Scholar
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/rimeltobgui">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a class="btn btn-ghost" href="#research">Research</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/headshot.jpg" alt="Portrait of Rim ElTobgui" width="720" height="960">
+    </figure>
+  </div>
+</div>
+<div class="hero-waves" aria-hidden="true">
+  <svg class="wv wv-back" viewBox="0 0 2880 150" preserveAspectRatio="none"><path d="M0,52.0 L16,53.7 L32,55.3 L48,57.0 L64,58.6 L80,60.2 L96,61.8 L112,63.3 L128,64.7 L144,66.1 L160,67.4 L176,68.7 L192,69.8 L208,70.9 L224,71.9 L240,72.8 L256,73.6 L272,74.3 L288,74.8 L304,75.3 L320,75.6 L336,75.9 L352,76.0 L368,76.0 L384,75.9 L400,75.6 L416,75.3 L432,74.8 L448,74.3 L464,73.6 L480,72.8 L496,71.9 L512,70.9 L528,69.8 L544,68.7 L560,67.4 L576,66.1 L592,64.7 L608,63.3 L624,61.8 L640,60.2 L656,58.6 L672,57.0 L688,55.3 L704,53.7 L720,52.0 L736,50.3 L752,48.7 L768,47.0 L784,45.4 L800,43.8 L816,42.2 L832,40.7 L848,39.3 L864,37.9 L880,36.6 L896,35.3 L912,34.2 L928,33.1 L944,32.1 L960,31.2 L976,30.4 L992,29.7 L1008,29.2 L1024,28.7 L1040,28.4 L1056,28.1 L1072,28.0 L1088,28.0 L1104,28.1 L1120,28.4 L1136,28.7 L1152,29.2 L1168,29.7 L1184,30.4 L1200,31.2 L1216,32.1 L1232,33.1 L1248,34.2 L1264,35.3 L1280,36.6 L1296,37.9 L1312,39.3 L1328,40.7 L1344,42.2 L1360,43.8 L1376,45.4 L1392,47.0 L1408,48.7 L1424,50.3 L1440,52.0 L1456,53.7 L1472,55.3 L1488,57.0 L1504,58.6 L1520,60.2 L1536,61.8 L1552,63.3 L1568,64.7 L1584,66.1 L1600,67.4 L1616,68.7 L1632,69.8 L1648,70.9 L1664,71.9 L1680,72.8 L1696,73.6 L1712,74.3 L1728,74.8 L1744,75.3 L1760,75.6 L1776,75.9 L1792,76.0 L1808,76.0 L1824,75.9 L1840,75.6 L1856,75.3 L1872,74.8 L1888,74.3 L1904,73.6 L1920,72.8 L1936,71.9 L1952,70.9 L1968,69.8 L1984,68.7 L2000,67.4 L2016,66.1 L2032,64.7 L2048,63.3 L2064,61.8 L2080,60.2 L2096,58.6 L2112,57.0 L2128,55.3 L2144,53.7 L2160,52.0 L2176,50.3 L2192,48.7 L2208,47.0 L2224,45.4 L2240,43.8 L2256,42.2 L2272,40.7 L2288,39.3 L2304,37.9 L2320,36.6 L2336,35.3 L2352,34.2 L2368,33.1 L2384,32.1 L2400,31.2 L2416,30.4 L2432,29.7 L2448,29.2 L2464,28.7 L2480,28.4 L2496,28.1 L2512,28.0 L2528,28.0 L2544,28.1 L2560,28.4 L2576,28.7 L2592,29.2 L2608,29.7 L2624,30.4 L2640,31.2 L2656,32.1 L2672,33.1 L2688,34.2 L2704,35.3 L2720,36.6 L2736,37.9 L2752,39.3 L2768,40.7 L2784,42.2 L2800,43.8 L2816,45.4 L2832,47.0 L2848,48.7 L2864,50.3 L2880,52.0 L2880,150 L0,150 Z"/></svg>
+  <svg class="wv wv-mid" viewBox="0 0 2880 150" preserveAspectRatio="none"><path d="M0,92.8 L16,93.5 L32,93.9 L48,94.0 L64,93.7 L80,93.0 L96,92.1 L112,90.8 L128,89.2 L144,87.4 L160,85.3 L176,83.1 L192,80.7 L208,78.3 L224,75.8 L240,73.3 L256,70.8 L272,68.5 L288,66.3 L304,64.2 L320,62.5 L336,60.9 L352,59.7 L368,58.8 L384,58.2 L400,58.0 L416,58.1 L432,58.6 L448,59.4 L464,60.5 L480,62.0 L496,63.7 L512,65.6 L528,67.8 L544,70.1 L560,72.5 L576,75.0 L592,77.5 L608,80.0 L624,82.4 L640,84.7 L656,86.8 L672,88.7 L688,90.3 L704,91.7 L720,92.8 L736,93.5 L752,93.9 L768,94.0 L784,93.7 L800,93.0 L816,92.1 L832,90.8 L848,89.2 L864,87.4 L880,85.3 L896,83.1 L912,80.7 L928,78.3 L944,75.8 L960,73.3 L976,70.8 L992,68.5 L1008,66.3 L1024,64.2 L1040,62.5 L1056,60.9 L1072,59.7 L1088,58.8 L1104,58.2 L1120,58.0 L1136,58.1 L1152,58.6 L1168,59.4 L1184,60.5 L1200,62.0 L1216,63.7 L1232,65.6 L1248,67.8 L1264,70.1 L1280,72.5 L1296,75.0 L1312,77.5 L1328,80.0 L1344,82.4 L1360,84.7 L1376,86.8 L1392,88.7 L1408,90.3 L1424,91.7 L1440,92.8 L1456,93.5 L1472,93.9 L1488,94.0 L1504,93.7 L1520,93.0 L1536,92.1 L1552,90.8 L1568,89.2 L1584,87.4 L1600,85.3 L1616,83.1 L1632,80.7 L1648,78.3 L1664,75.8 L1680,73.3 L1696,70.8 L1712,68.5 L1728,66.3 L1744,64.2 L1760,62.5 L1776,60.9 L1792,59.7 L1808,58.8 L1824,58.2 L1840,58.0 L1856,58.1 L1872,58.6 L1888,59.4 L1904,60.5 L1920,62.0 L1936,63.7 L1952,65.6 L1968,67.8 L1984,70.1 L2000,72.5 L2016,75.0 L2032,77.5 L2048,80.0 L2064,82.4 L2080,84.7 L2096,86.8 L2112,88.7 L2128,90.3 L2144,91.7 L2160,92.8 L2176,93.5 L2192,93.9 L2208,94.0 L2224,93.7 L2240,93.0 L2256,92.1 L2272,90.8 L2288,89.2 L2304,87.4 L2320,85.3 L2336,83.1 L2352,80.7 L2368,78.3 L2384,75.8 L2400,73.3 L2416,70.8 L2432,68.5 L2448,66.3 L2464,64.2 L2480,62.5 L2496,60.9 L2512,59.7 L2528,58.8 L2544,58.2 L2560,58.0 L2576,58.1 L2592,58.6 L2608,59.4 L2624,60.5 L2640,62.0 L2656,63.7 L2672,65.6 L2688,67.8 L2704,70.1 L2720,72.5 L2736,75.0 L2752,77.5 L2768,80.0 L2784,82.4 L2800,84.7 L2816,86.8 L2832,88.7 L2848,90.3 L2864,91.7 L2880,92.8 L2880,150 L0,150 Z"/></svg>
+  <svg class="wv wv-front" viewBox="0 0 2880 150" preserveAspectRatio="none"><path d="M0,120.1 L16,119.5 L32,118.8 L48,118.1 L64,117.4 L80,116.6 L96,115.8 L112,115.0 L128,114.2 L144,113.4 L160,112.5 L176,111.7 L192,110.8 L208,110.0 L224,109.2 L240,108.4 L256,107.6 L272,106.8 L288,106.1 L304,105.4 L320,104.7 L336,104.0 L352,103.4 L368,102.9 L384,102.4 L400,101.9 L416,101.5 L432,101.1 L448,100.8 L464,100.5 L480,100.3 L496,100.1 L512,100.0 L528,100.0 L544,100.0 L560,100.1 L576,100.2 L592,100.4 L608,100.7 L624,101.0 L640,101.4 L656,101.8 L672,102.2 L688,102.7 L704,103.3 L720,103.9 L736,104.5 L752,105.2 L768,105.9 L784,106.6 L800,107.4 L816,108.2 L832,109.0 L848,109.8 L864,110.6 L880,111.5 L896,112.3 L912,113.2 L928,114.0 L944,114.8 L960,115.6 L976,116.4 L992,117.2 L1008,117.9 L1024,118.6 L1040,119.3 L1056,120.0 L1072,120.6 L1088,121.1 L1104,121.6 L1120,122.1 L1136,122.5 L1152,122.9 L1168,123.2 L1184,123.5 L1200,123.7 L1216,123.9 L1232,124.0 L1248,124.0 L1264,124.0 L1280,123.9 L1296,123.8 L1312,123.6 L1328,123.3 L1344,123.0 L1360,122.6 L1376,122.2 L1392,121.8 L1408,121.3 L1424,120.7 L1440,120.1 L1456,119.5 L1472,118.8 L1488,118.1 L1504,117.4 L1520,116.6 L1536,115.8 L1552,115.0 L1568,114.2 L1584,113.4 L1600,112.5 L1616,111.7 L1632,110.8 L1648,110.0 L1664,109.2 L1680,108.4 L1696,107.6 L1712,106.8 L1728,106.1 L1744,105.4 L1760,104.7 L1776,104.0 L1792,103.4 L1808,102.9 L1824,102.4 L1840,101.9 L1856,101.5 L1872,101.1 L1888,100.8 L1904,100.5 L1920,100.3 L1936,100.1 L1952,100.0 L1968,100.0 L1984,100.0 L2000,100.1 L2016,100.2 L2032,100.4 L2048,100.7 L2064,101.0 L2080,101.4 L2096,101.8 L2112,102.2 L2128,102.7 L2144,103.3 L2160,103.9 L2176,104.5 L2192,105.2 L2208,105.9 L2224,106.6 L2240,107.4 L2256,108.2 L2272,109.0 L2288,109.8 L2304,110.6 L2320,111.5 L2336,112.3 L2352,113.2 L2368,114.0 L2384,114.8 L2400,115.6 L2416,116.4 L2432,117.2 L2448,117.9 L2464,118.6 L2480,119.3 L2496,120.0 L2512,120.6 L2528,121.1 L2544,121.6 L2560,122.1 L2576,122.5 L2592,122.9 L2608,123.2 L2624,123.5 L2640,123.7 L2656,123.9 L2672,124.0 L2688,124.0 L2704,124.0 L2720,123.9 L2736,123.8 L2752,123.6 L2768,123.3 L2784,123.0 L2800,122.6 L2816,122.2 L2832,121.8 L2848,121.3 L2864,120.7 L2880,120.1 L2880,150 L0,150 Z"/></svg>
+</div>
+</header>
+
+<section id="latest" class="latest-section" aria-labelledby="latest-title">
+  <div class="wrap">
+    <div class="latest-head">
+      <h2 class="section-title" id="latest-title">Recent publications</h2>
+      <a href="#publications">All publications</a>
+    </div>
+    <div class="latest">
+      <article class="latest-card feature">
+        <a class="latest-img" href="paper-seaquery-joe.html"><img src="img/rs-split.jpg" alt="Reef photo that turns into its segmentation overlay along a diagonal split"></a>
+        <div class="latest-body">
+          <div class="tags"><span class="tag">Under review</span><span class="tag">Journal</span></div>
+          <h3>SeaQuery: A Metric-Conditioned Vision-Language Framework for Underwater Ecological Monitoring</h3>
+          <p class="venue">IEEE Journal of Oceanic Engineering, MetroSea special issue</p>
+          <p class="latest-sum">Compares rule-based and vision-language reef-state classification. Segmentation with an explicit rule reaches 90.82% accuracy, against 41.07% for the best of 27 VLM configurations.</p>
+          <div class="links"><a href="paper-seaquery-joe.html">Overview</a><a href="paper-seaquery-joe.html#video">Video summary</a></div>
+        </div>
+      </article>
+      <article class="latest-card">
+        <a class="latest-img" href="paper-edge-2026.html"><img src="img/hsurf-render-1.jpg" alt="Illustration of an H-SURF robotic fish over a coral reef"></a>
+        <div class="latest-body">
+          <div class="tags"><span class="tag">2026</span><span class="tag">Conference</span></div>
+          <h3>From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring</h3>
+          <p class="venue">IEEE MetroSea 2026 · Global Ocean Robotics Day</p>
+          <div class="links"><a href="paper-edge-2026.html">Overview</a><a href="paper-edge-2026.html#video">Video</a></div>
+        </div>
+      </article>
+      <article class="latest-card">
+        <a class="latest-img" href="paper-swarms-2026.html"><img src="img/hsurf-render-2.jpg" alt="Illustration of two H-SURF robots over a coral reef"></a>
+        <div class="latest-body">
+          <div class="tags"><span class="tag">2026</span><span class="tag">Journal</span></div>
+          <h3>Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach</h3>
+          <p class="venue">IEEE Journal of Oceanic Engineering</p>
+          <div class="links"><a href="https://doi.org/10.1109/JOE.2026.3678798">Paper</a><a href="paper-swarms-2026.html">Overview</a><a href="paper-swarms-2026.html#video">Video</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="research" class="section">
+  <div class="wrap">
+    <h2 class="section-title">Research</h2>
+    <p class="lede">The work examines how far scene understanding can be carried out on resource-constrained underwater platforms, from multi-robot tracking and localization to metric-grounded ecological assessment. Each paper has its own page with an overview, qualitative results and a video summary.</p>
+    <div class="threads">
+      <article class="thread">
+        <img src="img/rs-split.jpg" alt="Reef photo that turns into its segmentation overlay along a diagonal split" loading="lazy">
+        <h3>Metric-grounded reef assessment</h3>
+        <p>Vision-language models conditioned on segmentation-derived ecological metrics for captioning, question answering and reef-state classification.</p>
+        <ul class="thread-links"><li><a href="paper-seaquery-joe.html">SeaQuery, IEEE JOE (under review)</a></li><li><a href="paper-seaquery-2025.html">SeaQuery, IEEE MetroSea 2025</a></li></ul>
+      </article>
+      <article class="thread">
+        <img src="img/hsurf-render-1.jpg" alt="Illustration of an H-SURF robotic fish over a coral reef" loading="lazy">
+        <h3>Onboard deployment</h3>
+        <p>Latency, energy and memory of segmentation and vision-language inference on embedded hardware such as the Raspberry Pi 4.</p>
+        <ul class="thread-links"><li><a href="paper-edge-2026.html">From Workstation to Edge, IEEE MetroSea 2026</a></li></ul>
+      </article>
+      <article class="thread">
+        <img src="img/hsurf-render-2.jpg" alt="Illustration of two H-SURF robots over a coral reef" loading="lazy">
+        <h3>Perception for underwater swarms</h3>
+        <p>Monocular detection, multi-object tracking and relative localization between H-SURF robotic fish.</p>
+        <ul class="thread-links"><li><a href="paper-swarms-2026.html">Underwater Robotic Swarms, IEEE JOE 2026</a></li><li><a href="paper-trackers-2024.html">Multi-object tracker benchmark, OCEANS 2024</a></li></ul>
+      </article>
+    </div>
+    <div class="direction">
+      <h3>Current direction</h3>
+      <p>Current work extends scene understanding from single images to spatial and temporal context, and links perception to planning and decision-making onboard marine robots.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="publications" class="section pubs-section wavy">
+  <div class="wrap">
+    <div class="pubs-head">
+      <h2 class="section-title">Publications</h2>
+      <a href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">All papers on Google Scholar</a>
+    </div>
+    <div class="filters" role="group" aria-label="Filter publications">
+      <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-filter="journal" aria-pressed="false">Journal</button>
+      <button type="button" class="chip" data-filter="conference" aria-pressed="false">Conference</button>
+      <button type="button" class="chip" data-filter="review" aria-pressed="false">Under review</button>
+      <span class="count" id="pub-count" aria-live="polite">5 papers</span>
+    </div>
+
+    <article class="pub" id="pub-seaquery-joe" data-type="review">
+      <p class="year">2026</p>
+      <div class="body">
+        <div class="tags"><span class="tag">Under review</span></div>
+        <h3><a class="pub-title" href="paper-seaquery-joe.html">SeaQuery: A Metric-Conditioned Vision-Language Framework for Underwater Ecological Monitoring</a></h3>
+        <p class="authors"><strong>R. ElTobgui</strong>, F. Renda, G. De Masi, J. Dias</p>
+        <p class="venue">IEEE Journal of Oceanic Engineering, MetroSea special issue</p>
+        <div class="links"><a href="paper-seaquery-joe.html">Overview</a><a href="paper-seaquery-joe.html#video">Video</a></div>
+      </div>
+    </article>
+
+    <article class="pub" id="pub-metrosea2026" data-type="conference">
+      <p class="year">2026</p>
+      <div class="body">
+        <div class="tags"><span class="tag">Conference</span></div>
+        <h3><a class="pub-title" href="paper-edge-2026.html">From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring</a></h3>
+        <p class="authors"><strong>R. ElTobgui</strong>, V. Sudevan, F. Renda, G. De Masi, J. Dias</p>
+        <p class="venue">IEEE MetroSea 2026. Also presented at Global Ocean Robotics Day, Sorbonne University Abu Dhabi</p>
+        <div class="links">
+          <a href="paper-edge-2026.html">Overview</a>
+          <a href="paper-edge-2026.html#video">Video</a>
+          <details class="bib"><summary>BibTeX</summary><div class="bibbox"><pre>@inproceedings{eltobgui2026edge,
+  title     = {From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring},
+  author    = {ElTobgui, Rim and Sudevan, Vidya and Renda, Federico and De Masi, Giulia and Dias, Jorge},
+  booktitle = {IEEE International Workshop on Metrology for the Sea (MetroSea)},
+  year      = {2026}
+}</pre><button type="button" class="copy">Copy</button></div></details>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub" id="pub-joe2026" data-type="journal">
+      <p class="year">2026</p>
+      <div class="body">
+        <div class="tags"><span class="tag">Journal</span></div>
+        <h3><a class="pub-title" href="paper-swarms-2026.html">Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach</a></h3>
+        <p class="authors"><strong>R. ElTobgui</strong>, S. Iacoponi, F. Renda, G. De Masi, J. Dias</p>
+        <p class="venue">IEEE Journal of Oceanic Engineering, 2026</p>
+        <div class="links">
+          <a href="https://doi.org/10.1109/JOE.2026.3678798">DOI</a>
+          <a href="paper-swarms-2026.html">Overview</a>
+          <a href="paper-swarms-2026.html#video">Video</a>
+          <details class="bib"><summary>BibTeX</summary><div class="bibbox"><pre>@article{eltobgui2026swarms,
+  title   = {Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach},
+  author  = {ElTobgui, Rim and Iacoponi, Saverio and Renda, Federico and De Masi, Giulia and Dias, Jorge},
+  journal = {IEEE Journal of Oceanic Engineering},
+  year    = {2026},
+  doi     = {10.1109/JOE.2026.3678798}
+}</pre><button type="button" class="copy">Copy</button></div></details>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub" id="pub-metrosea2025" data-type="conference">
+      <p class="year">2025</p>
+      <div class="body">
+        <div class="tags"><span class="tag">Conference</span><span class="tag award">Best Paper Award</span></div>
+        <h3><a class="pub-title" href="paper-seaquery-2025.html">Vision-Language Models for Underwater Ecological Monitoring</a></h3>
+        <p class="authors"><strong>R. ElTobgui</strong>, S. Iacoponi, S. Javid, F. Renda, G. De Masi, J. Dias</p>
+        <p class="venue">IEEE MetroSea 2025</p>
+        <div class="links">
+          <a href="https://doi.org/10.1109/MetroSea66681.2025.11245715">DOI</a>
+          <a href="paper-seaquery-2025.html">Overview</a>
+          <a href="paper-seaquery-2025.html#video">Video</a>
+          <details class="bib"><summary>BibTeX</summary><div class="bibbox"><pre>@inproceedings{eltobgui2025seaquery,
+  title     = {Vision-Language Models for Underwater Ecological Monitoring},
+  author    = {ElTobgui, Rim and Iacoponi, Saverio and Javid, Sajid and Renda, Federico and De Masi, Giulia and Dias, Jorge},
+  booktitle = {IEEE International Workshop on Metrology for the Sea (MetroSea)},
+  year      = {2025},
+  doi       = {10.1109/MetroSea66681.2025.11245715}
+}</pre><button type="button" class="copy">Copy</button></div></details>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub" id="pub-oceans2024" data-type="conference">
+      <p class="year">2024</p>
+      <div class="body">
+        <div class="tags"><span class="tag">Conference</span></div>
+        <h3><a class="pub-title" href="paper-trackers-2024.html">Towards Efficient Underwater Robotic Swarms: Edge-Based Comparative Analysis of Multi-Object Trackers</a></h3>
+        <p class="authors"><strong>R. ElTobgui</strong>, F. Zayer, S. Iacoponi, G. De Masi, F. Renda, J. Dias</p>
+        <p class="venue">OCEANS 2024, Singapore</p>
+        <div class="links">
+          <a href="https://doi.org/10.1109/OCEANS51537.2024.10682269">DOI</a>
+          <a href="paper-trackers-2024.html">Overview</a>
+          <a href="paper-trackers-2024.html#video">Video</a>
+          <details class="bib"><summary>BibTeX</summary><div class="bibbox"><pre>@inproceedings{eltobgui2024trackers,
+  title     = {Towards Efficient Underwater Robotic Swarms: Edge-Based Comparative Analysis of Multi-Object Trackers},
+  author    = {ElTobgui, Rim and Zayer, Fakhreddine and Iacoponi, Saverio and De Masi, Giulia and Renda, Federico and Dias, Jorge},
+  booktitle = {OCEANS 2024 - Singapore},
+  year      = {2024},
+  doi       = {10.1109/OCEANS51537.2024.10682269}
+}</pre><button type="button" class="copy">Copy</button></div></details>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="posters" class="section" style="padding-top: 0">
+  <div class="wrap">
+    <h2 class="section-title">Posters</h2>
+    <p class="lede">Poster presentations. Each links to the full PDF.</p>
+    <div class="posters">
+      <a class="poster" href="posters/6gmena2026.pdf"><div class="thumb"><img src="img/posters/6gmena2026.jpg" alt="" loading="lazy"></div><span class="venue-tag">6G MENA 2026</span><strong>Coral Reef Monitoring with Semantic 3D Mapping and Edge Vision-Language Models</strong><span class="open">Open PDF</span></a>
+      <a class="poster" href="posters/seaworld2026.pdf"><div class="thumb"><img src="img/posters/seaworld2026.jpg" alt="" loading="lazy"></div><span class="venue-tag">World Ocean Day 2026 · Yas SeaWorld Research &amp; Rescue</span><strong>SeaQuery: A Dual-Path Vision-Language Framework for Underwater Ecological Monitoring</strong><span class="open">Open PDF</span></a>
+      <a class="poster" href="posters/maris2026.pdf"><div class="thumb"><img src="img/posters/maris2026.jpg" alt="" loading="lazy"></div><span class="venue-tag">MARIS AI Symposium 2026 · Sorbonne Abu Dhabi</span><strong>Advancing Underwater Robotic Autonomy through Vision–Language–Haptics Integration</strong><span class="open">Open PDF</span></a>
+      <a class="poster" href="posters/mcs2025.pdf"><div class="thumb"><img src="img/posters/mcs2025.jpg" alt="" loading="lazy"></div><span class="venue-tag">Machines Can See 2025</span><strong>Vision Language Models for Underwater Scene Understanding: Towards Intelligent Monitoring of Underwater Pollution</strong><span class="open">Open PDF</span></a>
+      <a class="poster" href="posters/iros2024.pdf"><div class="thumb"><img src="img/posters/iros2024.jpg" alt="" loading="lazy"></div><span class="venue-tag">IROS 2024</span><strong>Towards Efficient Underwater Robotic Swarms: Accurate Localization and Heading Estimation in Resource-Constrained Environments</strong><span class="open">Open PDF</span></a>
+      <a class="poster" href="posters/icar2023.pdf"><div class="thumb"><img src="img/posters/icar2023.jpg" alt="" loading="lazy"></div><span class="venue-tag">ICAR 2023</span><strong>Comparative Analysis of State-of-the-Art Multi-Object Trackers for Tracking of Underwater Swarms using Edge Device</strong><span class="open">Open PDF</span></a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="news" class="section" style="padding-top: 0">
+  <div class="wrap two-col">
+    <div>
+      <h2 class="section-title">News</h2>
+      <ul class="list">
+        <li><span class="when">2026</span><span>Presented a poster on semantic 3D reef mapping and edge VLMs at 6G MENA 2026.</span></li>
+        <li><span class="when">2026</span><span>Presented <em>From Workstation to Edge</em> at IEEE MetroSea 2026 and at Global Ocean Robotics Day, Sorbonne University Abu Dhabi.</span></li>
+        <li><span class="when">2026</span><span>Presented SeaQuery at World Ocean Day, Yas SeaWorld Research &amp; Rescue.</span></li>
+        <li><span class="when">2026</span><span>Presented vision-language-haptics work at the MARIS AI Symposium, Sorbonne University Abu Dhabi.</span></li>
+        <li><span class="when">2026</span><span><em>Underwater Robotic Swarms</em> published in the IEEE Journal of Oceanic Engineering.</span></li>
+        <li><span class="when">2025</span><span>SeaQuery received the Best Paper Award at IEEE MetroSea 2025.</span></li>
+        <li><span class="when">2024</span><span>Edge benchmark of multi-object trackers published at OCEANS 2024, Singapore.</span></li>
+      </ul>
+    </div>
+    <div id="teaching">
+      <h2 class="section-title">Teaching</h2>
+      <p class="teach-lede">Teaching assistant at Khalifa University.</p>
+      <ul class="list teach">
+        <li><span class="when">2026</span><span><span class="what">Robot Sensing</span><span class="where">ROBO 302 · Undergraduate</span><span class="terms-list">Fall 2026: lecture and lab</span></span></li>
+        <li><span class="when">2024–26</span><span><span class="what">Introduction to Computing with Python</span><span class="where">COSC 114 · Undergraduate</span><span class="terms-list">Labs: Fall 2024, Fall 2025, Spring 2026</span></span></li>
+        <li><span class="when">2023–25</span><span><span class="what">Algorithmic Robotics</span><span class="where">COSC 432 · Undergraduate</span><span class="terms-list">Fall 2023: lecture and lab · Spring 2024: lab · Spring 2025: lecture and labs</span></span></li>
+        <li><span class="when">2023</span><span><span class="what">Electronic Circuits and Devices</span><span class="where">ECCE 312 · Undergraduate</span><span class="terms-list">Spring 2023: lecture</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <svg class="foot-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path class="w2" d="M0,30 C240,64 480,0 760,34 C1020,64 1240,14 1440,40 L1440,80 L0,80 Z"/><path class="w1" d="M0,44 C200,18 440,70 720,46 C1000,22 1220,66 1440,48 L1440,80 L0,80 Z"/></svg>
+  <div class="wrap">
+    <div style="flex: 1 1 420px; min-width: 0">
+      <h2>Contact</h2>
+      <p>For research collaboration and academic inquiries.</p>
+      <ul class="emails">
+        <li><a href="mailto:rim.eltobgui@gmail.com">rim.eltobgui@gmail.com</a><button type="button" class="copy-mail" data-mail="rim.eltobgui@gmail.com">Copy</button></li>
+        <li><a href="mailto:100063155@ku.ac.ae">100063155@ku.ac.ae</a><span class="mail-note">Khalifa University</span><button type="button" class="copy-mail" data-mail="100063155@ku.ac.ae">Copy</button></li>
+      </ul>
+      <div class="foot-links">
+        <a href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/rimeltobgui">GitHub</a>
+        <a href="https://www.linkedin.com/in/rimeltobgui">LinkedIn</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 320px; min-width: 0">
+      <p>Khalifa University Center for Autonomous Robotic Systems (KUCARS)</p>
+      <p>Abu Dhabi, United Arab Emirates</p>
+    </div>
+  </div>
+  <div class="copyright"><div class="wrap">© 2026 Rim ElTobgui</div></div>
+</footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('.pub');
+  var count = document.getElementById('pub-count');
+  function apply(filter) {
+    var n = 0;
+    pubs.forEach(function (p) {
+      var show = filter === 'all' || p.getAttribute('data-type') === filter;
+      p.hidden = !show;
+      if (show) n++;
+    });
+    count.textContent = n + (n === 1 ? ' paper' : ' papers');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === filter ? 'true' : 'false'); });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter')); }); });
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('pre').textContent;
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  document.querySelectorAll('.copy-mail').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(btn.getAttribute('data-mail')).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  // Opening a video link plays nothing by itself; reset the filter so linked papers are visible.
+  document.querySelectorAll('a[href^="#pub-"]').forEach(function (a) {
+    a.addEventListener('click', function () { apply('all'); });
+  });
+})();
+</script>
+</body>
+</html>

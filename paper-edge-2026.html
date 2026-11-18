@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring · Rim ElTobgui</title>
+<meta name="description" content="Benchmarks segmentation and metric-conditioned vision-language inference on a workstation and a Raspberry Pi 4, and identifies language inference as the dominant onboard cost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html">Rim ElTobgui</a>
+    <div class="nav-links">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#posters">Posters</a>
+      <a href="index.html#news">News</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="scholar" href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Scholar</a>
+      <a class="scholar" href="https://github.com/rimeltobgui">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-band paper-band">
+<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="wrap hero-wrap paper-head">
+  <a class="back" href="index.html#publications">All publications</a>
+  <div class="paper-top">
+    <div class="paper-meta">
+      <div class="tags"><span class="tag">Conference</span><span class="tag">2026</span></div>
+      <h1>From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring</h1>
+      <p class="authors"><strong>R. ElTobgui</strong>, V. Sudevan, F. Renda, G. De Masi, J. Dias</p>
+      <p class="venue">IEEE MetroSea 2026. Also presented at Global Ocean Robotics Day, Sorbonne University Abu Dhabi</p>
+      <p class="paper-sum">Benchmarks segmentation and metric-conditioned vision-language inference on a workstation and a Raspberry Pi 4, and identifies language inference as the dominant onboard cost.</p>
+      <div class="actions"><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/6gmena2026.pdf">Poster (6G MENA 2026)</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
+    </div>
+    <figure class="paper-hero-fig"><img src="img/hsurf-render-1.jpg" alt="Illustration of an H-SURF robotic fish over a coral reef"><figcaption>H-SURF robotic fish (illustration).</figcaption></figure>
+  </div>
+</div>
+
+</header>
+
+<main>
+<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
+<h2 class="section-title">Overview</h2>
+<div class="spot paper-spot">
+      <div class="spot-text">
+        <p class="over">SeaQuery-P serializes segmentation metrics as a text prefix for a compact vision-language model, SmolVLM-256M. Three segmentors and several VLM precisions are benchmarked on a workstation and on a Raspberry Pi 4.</p>
+        <p class="over">On the Pi, a lightweight segmentor removes the segmentation bottleneck, and language inference dominates latency and energy. Mixed 4-bit quantization increases generation throughput and reduces storage.</p>
+        <div class="stats">
+          <div class="stat"><b>13.6×</b><span>Faster Pi segmentation</span><small>PIDNet-S vs SegFormer-B2, 1024²</small></div>
+          <div class="stat"><b>&gt; 98%</b><span>Pi pipeline energy in the VLM</span><small>PIDNet-S, native precision</small></div>
+          <div class="stat"><b>2.15×</b><span>Pi generation throughput</span><small>mixed 4-bit GGUF vs F16</small></div>
+        </div>
+      </div>
+      <div class="spot-visual">
+        <figure class="fig">
+          <img src="img/edge-onboard.jpg" alt="Onboard pipeline: the H-SURF robot and a Raspberry Pi 4. Core 0 runs segmentation and metric extraction continuously; cores 1 to 3 run SeaQuery-P when a query arrives" loading="lazy" width="1600" height="678">
+          <figcaption>Onboard design: the Raspberry Pi 4 runs segmentation continuously on one core and answers queries with SeaQuery-P on the other three.</figcaption>
+        </figure>
+        <figure class="chart">
+          <h4>Segmentation latency on a Raspberry Pi 4</h4>
+          <p>Seconds per 1024 × 1024 image. Lower is faster.</p>
+          <svg viewBox="0 0 520 132" role="img" aria-label="SegFormer-B2 56.61 seconds, SegFormer-B0 13.77 seconds, PIDNet-S 4.16 seconds">
+            <line class="axis" x1="130" y1="0" x2="130" y2="124"/>
+            <g class="row"><title>SegFormer-B2: 56.61 s</title><text x="120" y="25" text-anchor="end">SegFormer-B2</text><rect class="bar" x="132" y="6" width="320" height="28" rx="4"/><text class="val" x="460" y="25">56.61</text></g>
+            <g class="row"><title>SegFormer-B0: 13.77 s</title><text x="120" y="67" text-anchor="end">SegFormer-B0</text><rect class="bar" x="132" y="48" width="78" height="28" rx="4"/><text class="val" x="218" y="67">13.77</text></g>
+            <g class="row"><title>PIDNet-S: 4.16 s</title><text x="120" y="109" text-anchor="end">PIDNet-S</text><rect class="bar key" x="132" y="90" width="24" height="28" rx="4"/><text class="val" x="164" y="109">4.16</text></g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+</div></section>
+
+
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Video</h2>
+<div class="paper-video"><video controls preload="none" poster="img/thumb-metrosea2026.jpg"><source src="video/metrosea2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:59. Captions are included in the video.</p></div>
+</div></section>
+
+<section class="section" id="cite" style="padding-top: 24px"><div class="wrap"><h2 class="section-title">Cite</h2>
+<div class="bibbox"><pre>@inproceedings{eltobgui2026edge,
+  title     = {From Workstation to Edge: Vision-Language Models for Onboard Coral Reef Monitoring},
+  author    = {ElTobgui, Rim and Sudevan, Vidya and Renda, Federico and De Masi, Giulia and Dias, Jorge},
+  booktitle = {IEEE International Workshop on Metrology for the Sea (MetroSea)},
+  year      = {2026}
+}</pre><button type="button" class="copy">Copy</button></div></div></section>
+</main>
+
+<footer id="contact">
+  <svg class="foot-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path class="w2" d="M0,30 C240,64 480,0 760,34 C1020,64 1240,14 1440,40 L1440,80 L0,80 Z"/><path class="w1" d="M0,44 C200,18 440,70 720,46 C1000,22 1220,66 1440,48 L1440,80 L0,80 Z"/></svg>
+  <div class="wrap">
+    <div style="flex: 1 1 420px; min-width: 0">
+      <h2>Contact</h2>
+      <p>For research collaboration and academic inquiries.</p>
+      <ul class="emails">
+        <li><a href="mailto:rim.eltobgui@gmail.com">rim.eltobgui@gmail.com</a><button type="button" class="copy-mail" data-mail="rim.eltobgui@gmail.com">Copy</button></li>
+        <li><a href="mailto:100063155@ku.ac.ae">100063155@ku.ac.ae</a><span class="mail-note">Khalifa University</span><button type="button" class="copy-mail" data-mail="100063155@ku.ac.ae">Copy</button></li>
+      </ul>
+      <div class="foot-links">
+        <a href="https://scholar.google.com/citations?user=j8RVJ1IAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/rimeltobgui">GitHub</a>
+        <a href="https://www.linkedin.com/in/rimeltobgui">LinkedIn</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 320px; min-width: 0">
+      <p>Khalifa University Center for Autonomous Robotic Systems (KUCARS)</p>
+      <p>Abu Dhabi, United Arab Emirates</p>
+    </div>
+  </div>
+  <div class="copyright"><div class="wrap">© 2026 Rim ElTobgui</div></div>
+</footer>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var pubs = document.querySelectorAll('.pub');
+  var count = document.getElementById('pub-count');
+  function apply(filter) {
+    var n = 0;
+    pubs.forEach(function (p) {
+      var show = filter === 'all' || p.getAttribute('data-type') === filter;
+      p.hidden = !show;
+      if (show) n++;
+    });
+    count.textContent = n + (n === 1 ? ' paper' : ' papers');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === filter ? 'true' : 'false'); });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.getAttribute('data-filter')); }); });
+
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.parentElement.querySelector('pre').textContent;
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  document.querySelectorAll('.copy-mail').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      try {
+        navigator.clipboard.writeText(btn.getAttribute('data-mail')).then(function () { done('Copied'); }, function () { done('Select and copy'); });
+      } catch (e) { done('Select and copy'); }
+    });
+  });
+
+  // Opening a video link plays nothing by itself; reset the filter so linked papers are visible.
+  document.querySelectorAll('a[href^="#pub-"]').forEach(function (a) {
+    a.addEventListener('click', function () { apply('all'); });
+  });
+})();
+</script>
+</body>
+</html>
