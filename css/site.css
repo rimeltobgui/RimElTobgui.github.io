@@ -161,6 +161,11 @@ details.bib[open] { flex-basis: 100%; }
 .photo-crop { display: block; position: relative; overflow: hidden; border-radius: 6px; }
 .photo-crop img { position: absolute; width: var(--photo-width); max-width: none; height: auto; left: var(--photo-left); top: var(--photo-top); }
 
+.news-visual a { display: block; }
+.news-visual img { display: block; width: 100%; height: auto; }
+.news-visual.poster-preview { max-width: 520px; }
+.news-resources { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 16px 0 0; margin: 24px 0 0; list-style: none; border-top: 1px solid var(--rule); }
+
 /* Spotlights */
 .spot { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 56px; padding: 56px 0; border-top: 1px solid var(--rule); scroll-margin-top: 90px; }
 .spot:first-of-type { border-top: 0; padding-top: 8px; }
