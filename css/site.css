@@ -151,10 +151,15 @@ details.bib[open] { flex-basis: 100%; }
 .list .what { display: block; font-weight: 600; }
 .list .where { color: var(--muted); font-size: 16px; }
 
-.exhibition-news { min-width: 0; }
-.exhibition-news p { margin: 4px 0 12px; }
-.exhibition-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 62px), 1fr)); gap: 8px; }
-.exhibition-photos img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.news-list li a { flex: 1; font-weight: 600; }
+.news-post { max-width: 800px; padding-top: 32px; padding-bottom: 72px; }
+.news-post header { margin-top: 32px; }
+.news-post time, .news-post figcaption { color: var(--muted); font-size: 16px; }
+.news-post h1 { font: 400 clamp(32px, 5vw, 52px)/1.12 var(--display); color: var(--accent); margin: 6px 0 18px; }
+.news-post figure { margin: 32px 0; }
+.news-post figcaption { margin-top: 8px; }
+.photo-crop { display: block; position: relative; overflow: hidden; border-radius: 6px; }
+.photo-crop img { position: absolute; width: var(--photo-width); max-width: none; height: auto; left: var(--photo-left); top: var(--photo-top); }
 
 /* Spotlights */
 .spot { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 56px; padding: 56px 0; border-top: 1px solid var(--rule); scroll-margin-top: 90px; }
