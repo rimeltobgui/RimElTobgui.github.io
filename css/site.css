@@ -151,6 +151,11 @@ details.bib[open] { flex-basis: 100%; }
 .list .what { display: block; font-weight: 600; }
 .list .where { color: var(--muted); font-size: 16px; }
 
+.exhibition-news { min-width: 0; }
+.exhibition-news p { margin: 4px 0 12px; }
+.exhibition-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 62px), 1fr)); gap: 8px; }
+.exhibition-photos img { display: block; width: 100%; height: auto; border-radius: 4px; }
+
 /* Spotlights */
 .spot { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px 56px; padding: 56px 0; border-top: 1px solid var(--rule); scroll-margin-top: 90px; }
 .spot:first-of-type { border-top: 0; padding-top: 8px; }
