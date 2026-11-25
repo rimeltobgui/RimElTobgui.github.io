@@ -1,0 +1,292 @@
+WEBVTT
+
+00:01.300 --> 00:02.165
+SeaQuery.
+
+00:02.485 --> 00:06.630
+A metric-conditioned vision-language framework for underwater ecological monitoring.
+
+00:09.230 --> 00:12.134
+Underwater robots can now survey coral reefs at scale.
+
+00:12.454 --> 00:16.078
+The bottleneck is turning those images into ecological information.
+
+00:16.398 --> 00:18.770
+Segmentation gives pixel-level measurements,
+
+00:18.770 --> 00:20.442
+but it cannot answer questions.
+
+00:20.762 --> 00:25.039
+Vision-language models, or VLMs, answer questions in natural language,
+
+00:25.039 --> 00:27.116
+but give no quantitative evidence.
+
+00:29.220 --> 00:30.905
+SeaQuery combines both.
+
+00:31.225 --> 00:34.936
+A SegFormer model measures five indicators: live, bleached,
+
+00:34.936 --> 00:38.585
+and dead coral cover, algae, and crown-of-thorns starfish.
+
+00:38.905 --> 00:41.628
+These measurements can drive an explicit decision rule.
+
+00:41.947 --> 00:45.704
+Or they can condition the VLM, either as a text prefix,
+
+00:45.704 --> 00:46.934
+called SeaQuery-P,
+
+00:47.254 --> 00:49.896
+or as metric embeddings inserted at a verified,
+
+00:49.896 --> 00:52.481
+backbone-specific position, called SeaQuery-F.
+
+00:54.580 --> 00:57.486
+We tested nine model variants under five conditions.
+
+00:57.806 --> 01:00.266
+No metrics, or adaptive or full metrics,
+
+01:00.266 --> 01:02.295
+delivered by prefix or by fusion.
+
+01:02.615 --> 01:08.609
+That gives 45 configurations on 5,158 CoralVQA questions,
+
+01:08.929 --> 01:13.570
+plus a reef-state test on all 392 Coralscapes test images.
+
+01:15.670 --> 01:18.381
+So, do the metrics help? Without any training,
+
+01:18.381 --> 01:21.328
+they improved exact match for four of five models.
+
+01:21.648 --> 01:25.535
+LLaVA gained the most, from 37.4 to 60.2 percent.
+
+01:25.855 --> 01:27.746
+PaliGemma2 Mix was the exception.
+
+01:27.746 --> 01:30.038
+Every conditioned setting made it worse.
+
+01:32.140 --> 01:34.171
+How the metrics are delivered also matters,
+
+01:34.171 --> 01:36.108
+and the best choice depends on the model.
+
+01:36.428 --> 01:38.281
+LLaVA prefers the text prefix,
+
+01:38.281 --> 01:42.233
+while BLIP-2 and PaliGemma2 Mix prefer fusion with full metrics.
+
+01:42.553 --> 01:46.123
+Choosing adaptive or full context is just as model-dependent.
+
+01:46.443 --> 01:50.404
+Conditioning is a model interface to validate, not a universal fix.
+
+01:52.500 --> 01:54.952
+Conditioning adds context at inference.
+
+01:54.952 --> 01:59.289
+What if the model itself is trained on the task? Low-rank adaptation,
+
+01:59.289 --> 02:03.124
+or LoRA, trained on 40,000 questions, gave the largest gains.
+
+02:03.444 --> 02:06.926
+Every adapted model improved by 27 to 39 points.
+
+02:07.246 --> 02:10.865
+InternVL2.5 reached 74.25 percent exact match,
+
+02:10.865 --> 02:15.191
+the best of all 45 configurations, without any metrics.
+
+02:17.290 --> 02:23.347
+So how does conditioning compare with training? Conditioning alone took LLaVA to 60.2 percent,
+
+02:23.347 --> 02:26.697
+close to its LoRA adapter at 67.2, with no training.
+
+02:27.017 --> 02:29.681
+That recovers about three quarters of the LoRA gain.
+
+02:30.001 --> 02:31.139
+After adaptation,
+
+02:31.139 --> 02:35.356
+extra metrics became neutral or harmful for LLaVA and InternVL,
+
+02:35.356 --> 02:37.899
+and gave PaliGemma2 Mix a small boost.
+
+02:40.000 --> 02:43.119
+A LLaVA adapter trained with metrics scored only 8 percent.
+
+02:43.439 --> 02:47.291
+The cause was not the metrics. It kept talking past the answer,
+
+02:47.291 --> 02:49.615
+which explained 85 percent of the gap.
+
+02:49.935 --> 02:54.169
+Teaching the model where to stop raised both adapters to about 67 percent.
+
+02:54.489 --> 02:57.630
+Then, metric training helped when metrics were given at inference,
+
+02:57.630 --> 02:58.962
+and hurt when they were not.
+
+03:01.060 --> 03:04.066
+These answers rely on the measurements themselves.
+
+03:04.066 --> 03:05.388
+How reliable are they?
+
+03:05.708 --> 03:08.436
+On 392 held-out Coralscapes images,
+
+03:08.436 --> 03:12.958
+live coral and algae agree closely with expert annotation.
+
+03:13.278 --> 03:16.295
+Bleaching agrees less, and dead coral is the weakest.
+
+03:16.615 --> 03:19.512
+Starfish counts match on 384 images,
+
+03:19.512 --> 03:22.408
+but only 14 images contain starfish.
+
+03:24.510 --> 03:27.883
+Beyond question answering, we tested reef-state decisions.
+
+03:27.883 --> 03:31.722
+An explicit rule on live coral and bleaching defines three states.
+
+03:32.042 --> 03:34.004
+Errors are weighted by consequence.
+
+03:34.004 --> 03:36.638
+Calling a degraded reef healthy costs the most.
+
+03:38.740 --> 03:44.031
+Applying this rule to segmentation gives 90.8 percent accuracy and the lowest cost.
+
+03:44.351 --> 03:48.496
+Among the VLMs, BLIP-2 with fusion is the most accurate,
+
+03:48.496 --> 03:49.680
+at 41.1 percent.
+
+03:50.001 --> 03:52.291
+But accuracy is not safety.
+
+03:52.291 --> 03:58.057
+BLIP-2 calls 104 of 160 degraded reefs healthy, the costliest error.
+
+03:58.377 --> 04:02.381
+LLaVA is less accurate, but makes half as many of these errors,
+
+04:02.381 --> 04:04.161
+and has the lowest VLM cost.
+
+04:04.161 --> 04:07.657
+Even always answering degraded costs less than any VLM.
+
+04:07.977 --> 04:10.879
+Segmentation calls only one degraded reef healthy.
+
+04:12.980 --> 04:16.271
+Why do the VLMs struggle? The raw answers show it.
+
+04:16.271 --> 04:18.641
+LLaVA picks option A for every reef,
+
+04:18.641 --> 04:22.722
+and the adapted PaliGemma2 Mix answers healthy for every reef.
+
+04:23.042 --> 04:27.021
+Segmentation stays lowest-cost across all 40 cost settings tested.
+
+04:27.341 --> 04:31.760
+And turning a degraded reef healthy needs a measurement error of at least 20 points,
+
+04:31.760 --> 04:33.812
+larger than the 95th-percentile errors.
+
+04:35.910 --> 04:40.478
+Finally, what does this mean for deployment? On a server GPU,
+
+04:40.478 --> 04:44.821
+the segmentation decision takes 79 milliseconds per image.
+
+04:44.821 --> 04:48.490
+Adding a VLM decision brings the pipeline to 166.
+
+04:48.810 --> 04:50.904
+So measurements can run on every frame,
+
+04:50.904 --> 04:52.891
+with the VLM called only when needed.
+
+04:54.990 --> 04:55.732
+In conclusion,
+
+04:55.732 --> 04:58.751
+ecological context can improve visual question answering,
+
+04:58.751 --> 05:01.505
+but the gain depends on the model and the interface.
+
+05:01.825 --> 05:05.542
+LoRA gives larger gains, and changes the value of that context.
+
+05:05.862 --> 05:07.591
+For rule-defined reef decisions,
+
+05:07.591 --> 05:10.400
+explicit logic on measurements is far more reliable.
+
+05:10.400 --> 05:14.181
+Part of this is by design, since the labels use the same measurements.
+
+05:16.280 --> 05:18.209
+Three steps remain for future work.
+
+05:18.529 --> 05:18.849
+First,
+
+05:18.849 --> 05:23.167
+the injected metrics need validation on the question-answering images themselves,
+
+05:23.167 --> 05:24.766
+which have no reference masks.
+
+05:25.086 --> 05:27.800
+Second, our measurements come from Red Sea imagery,
+
+05:27.800 --> 05:29.928
+so other reefs and cameras need testing.
+
+05:30.248 --> 05:32.683
+Third, single images should give way to video,
+
+05:32.683 --> 05:34.906
+to check consistency across survey frames.
+
+05:37.010 --> 05:37.658
+Thank you.
