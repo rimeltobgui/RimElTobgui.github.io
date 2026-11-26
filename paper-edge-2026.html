@@ -42,7 +42,6 @@
     <a href="#video">Video summary</a>
     <a href="#method">Method</a>
     <a href="#results">Results</a>
-    <a href="#qa">Q&amp;A</a>
     <a href="#cite">BibTeX</a>
   </nav>
 </header>
@@ -54,7 +53,7 @@
 
 <section class="section" id="video"><div class="wrap">
 <h2 class="section-title">Technical summary</h2>
-<div class="paper-video"><video controls preload="none" poster="img/metrosea2026-first-frame.webp"><source src="video/metrosea2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:59. Captions are included in the video.</p></div>
+<div class="paper-video"><video controls preload="none" poster="img/metrosea2026-title-slide.webp"><source src="video/metrosea2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:59. Captions are included in the video.</p></div>
 </div></section>
 
 <section class="section project-method" id="method"><div class="wrap">
@@ -83,16 +82,6 @@
           <div class="stat"><b>&gt; 98%</b><span>Pi pipeline energy in the VLM</span><small>PIDNet-S, native precision</small></div>
           <div class="stat"><b>2.15×</b><span>Pi generation throughput</span><small>mixed 4-bit GGUF vs F16</small></div>
         </div>
-</div></section>
-
-<section class="section" id="qa"><div class="wrap">
-  <h2 class="section-title">Questions &amp; answers</h2>
-  <dl class="project-qa">
-    <dt>How is compute shared between reef monitoring and questions?</dt>
-    <dd>One Raspberry Pi core runs segmentation and metric extraction continuously. When a question arrives, the other three cores run SeaQuery-P using the available measurements.</dd>
-    <dt>What limits the pipeline after segmentation is accelerated?</dt>
-    <dd>With PIDNet-S and native-precision language inference, the vision-language model accounts for more than 98% of pipeline energy on the Pi. Mixed 4-bit quantization raises generation throughput to 2.15 times the F16 rate.</dd>
-  </dl>
 </div></section>
 
 <section class="section" id="cite"><div class="wrap"><h2 class="section-title">Cite this paper</h2>

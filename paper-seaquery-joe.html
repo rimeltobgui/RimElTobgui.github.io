@@ -41,7 +41,6 @@
     <a href="#video">Video summary</a>
     <a href="#method">Method</a>
     <a href="#results">Results</a>
-    <a href="#qa">Q&amp;A</a>
   </nav>
 </header>
 
@@ -54,7 +53,7 @@
 <h2 class="section-title">Technical summary</h2>
 <div class="paper-video">
   <h3 class="video-sub">Full paper summary</h3>
-  <video controls preload="metadata" poster="img/seaquery-joe-first-frame.webp">
+  <video controls preload="metadata" poster="img/seaquery-joe-title-slide.webp">
     <source src="video/seaquery-joe.mp4" type="video/mp4">
     <track kind="captions" src="video/seaquery-joe.vtt" srclang="en" label="English" default>
   </video>
@@ -62,7 +61,7 @@
 </div>
 <div class="paper-video" style="margin-top: 40px">
   <h3 class="video-sub">Reef-state decision experiment</h3>
-  <video controls preload="none" poster="img/reefstate-first-frame.webp"><source src="video/reefstate.mp4" type="video/mp4"></video>
+  <video controls preload="none" poster="img/reefstate-title-slide.webp"><source src="video/reefstate.mp4" type="video/mp4"></video>
   <p class="venue">One experiment from the paper: explicit rules versus vision-language inference · 2:08.</p>
 </div>
 </div></section>
@@ -101,16 +100,6 @@
       <h3>Reef-health query: VLM-only versus SeaQuery-P</h3>
       <figure class="sample"><img src="img/q-dashboard.jpg" alt="Dashboard for a Site 23 reef frame: original frame, segmentation overlay, the VLM-only answer, the SeaQuery-P answer, five segmentation metrics and three reef-state labels" loading="lazy" width="1920" height="1080" style="aspect-ratio: auto"><figcaption>Without metrics, the VLM does not commit to an assessment and describes survey equipment. With the metric prefix, SeaQuery-P classifies the reef as healthy, consistent with the reference and segmentation-derived states.</figcaption></figure>
     </div>
-</div></section>
-
-<section class="section" id="qa"><div class="wrap">
-  <h2 class="section-title">Questions &amp; answers</h2>
-  <dl class="project-qa">
-    <dt>How does SeaQuery give the language model access to reef measurements?</dt>
-    <dd>SeaQuery-P writes the segmentation measurements into the prompt. SeaQuery-F supplies them as embeddings. Both use estimates of live, bleached and dead coral cover, algae cover and crown-of-thorns starfish count.</dd>
-    <dt>Which approach gave the lowest cost for reef-state decisions?</dt>
-    <dd>On the 392-image evaluation, applying the explicit rule to the segmentation measurements had the lowest cost across all 40 cost specifications. It classified one of the 160 degraded reefs as healthy.</dd>
-  </dl>
 </div></section>
 </main>
 

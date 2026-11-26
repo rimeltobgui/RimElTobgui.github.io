@@ -72,7 +72,7 @@
 .project-story #video, .project-story #cite { background: var(--wash); }
 .project-story .paper-video { max-width: 52rem; margin-inline: auto; }
 .project-story .paper-video .venue { text-align: center; }
-.project-prose, .project-qa { max-width: 67ch; margin: auto; }
+.project-prose { max-width: 67ch; margin: auto; }
 .project-prose p { margin: 0 0 1em; }
 .project-figures { max-width: 52rem; margin: 2rem auto 0; display: grid; gap: 2rem; }
 .project-figures .chart { max-width: 43rem; width: 100%; justify-self: center; }
@@ -81,8 +81,6 @@
 .project-story .stat { padding: 1.15rem; border: none; border-radius: 0; background: transparent; }
 .project-story .stat + .stat { border-inline-start: 1px solid var(--rule); }
 .project-story .stat b { font-size: clamp(1.55rem, 3vw, 2.25rem); }
-.project-story .project-qa dt { margin: 1.5rem 0 .4rem; font-weight: 600; font-size: 1.14rem; }
-.project-story .project-qa dd { margin: 0; color: var(--ink-2); }
 .project-story .bibbox { max-width: 52rem; margin-inline: auto; }
 @media (max-width: 760px) {
   .project-page .site-nav { position: static; }
