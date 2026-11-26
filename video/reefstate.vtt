@@ -1,0 +1,199 @@
+WEBVTT
+
+00:01.500 --> 00:02.070
+SeaQuery.
+
+00:02.070 --> 00:05.364
+A closer look at the reef-state decision experiment.
+
+00:08.800 --> 00:11.653
+Accuracy treats every error the same.
+
+00:11.653 --> 00:17.436
+In reef monitoring, missing degradation is worse than a cautious over-call.
+
+00:17.436 --> 00:29.310
+So we tested both SeaQuery pathways on a cost-sensitive decision task, using all 392 Coralscapes test images: 112 healthy, 120 stressed, and 160 degraded.
+
+00:31.500 --> 00:35.117
+Reef state follows an author-defined rule on two measurements.
+
+00:35.117 --> 00:40.601
+A reef is healthy when live coral cover is above 30 percent and bleaching is below 10 percent.
+
+00:40.601 --> 00:45.560
+It is degraded when live coral is below 10 percent, or bleaching is above 25 percent.
+
+00:45.560 --> 00:47.193
+Everything else is stressed.
+
+00:47.193 --> 00:52.211
+These are operational choices for this evaluation, not universal ecological standards.
+
+00:54.400 --> 00:56.536
+Errors are weighted by consequence.
+
+00:56.536 --> 01:00.380
+Calling a degraded reef healthy costs ten, the highest penalty.
+
+01:00.380 --> 01:04.835
+Calling a stressed reef healthy, or a degraded reef stressed, costs five.
+
+01:04.835 --> 01:07.032
+Cautious over-calls cost one or two.
+
+01:07.032 --> 01:10.998
+Expected ecological risk is the mean cost across the test images.
+
+01:13.200 --> 01:15.466
+The two pathways decide differently.
+
+01:15.466 --> 01:21.256
+The segmentation path measures live and bleached coral cover, and applies the rule directly.
+
+01:21.256 --> 01:27.801
+Each vision-language model, or VLM, receives the image and a three-option question that states the rule.
+
+01:27.801 --> 01:35.353
+The states are randomly assigned to A, B, and C, and any answer other than one letter is invalid, with the maximum cost.
+
+01:35.353 --> 01:41.898
+Supplying no metrics, or the two deciding metrics through prefix or fusion, gives 27 VLM configurations.
+
+01:44.100 --> 01:46.524
+Trivial baselines set the floor.
+
+01:46.524 --> 01:52.282
+Always answering healthy gives 28.6 percent accuracy, at a mean cost of 5.6.
+
+01:52.282 --> 01:57.509
+Always answering degraded gives 40.8 percent, at a cost of only 0.88.
+
+01:59.700 --> 02:05.075
+Segmentation reaches 90.8 percent accuracy, with a mean cost of 0.207.
+
+02:05.075 --> 02:15.517
+Among the VLMs, BLIP-2 with fusion is the most accurate, at 41.1 percent, and the only configuration above the always-degraded baseline.
+
+02:15.517 --> 02:17.590
+But accuracy is not safety.
+
+02:17.590 --> 02:24.500
+Its mean cost is 4.23, while LLaVA, at 36 percent accuracy, has the lowest VLM cost, 2.84.
+
+02:24.500 --> 02:28.262
+No VLM costs less than always answering degraded.
+
+02:30.500 --> 02:32.660
+The confusion matrices show why.
+
+02:32.660 --> 02:39.546
+Segmentation errors stay in neighbouring states, and only one of 160 degraded reefs is called healthy.
+
+02:39.546 --> 02:44.474
+BLIP-2 with fusion calls 104 degraded reefs healthy, the costliest error.
+
+02:44.474 --> 02:46.431
+LLaVA makes half as many, 52.
+
+02:46.431 --> 02:51.292
+The segmentation advantage comes mainly from recognizing degraded reefs.
+
+02:53.500 --> 02:55.145
+Why do the VLMs struggle?
+
+02:55.145 --> 02:56.725
+The raw answers show it.
+
+02:56.725 --> 03:00.739
+Zero-shot LLaVA answers A on every image, in every condition.
+
+03:00.739 --> 03:06.793
+With randomized options, this spreads its predictions almost evenly across the three states.
+
+03:06.793 --> 03:10.610
+The adapted PaliGemma2 Mix answers healthy on every image.
+
+03:10.610 --> 03:17.849
+InternVL2.5 and PaliGemma2-PT give mostly invalid answers, so their few high-cost errors do not mean low risk.
+
+03:20.000 --> 03:22.122
+Controlled probes narrowed this down.
+
+03:22.122 --> 03:31.411
+LLaVA reads the supplied values correctly and answers single threshold questions correctly, but classifies only one of three examples when the steps are combined.
+
+03:31.411 --> 03:35.368
+PaliGemma2 Mix mostly picks whichever state the prompt defines first.
+
+03:35.368 --> 03:41.618
+On the real images, putting the degraded rule first changed every zero-shot PaliGemma prediction to degraded.
+
+03:43.800 --> 03:45.419
+Would more context help?
+
+03:45.419 --> 03:49.938
+Supplying all five metrics instead of two is again model-dependent.
+
+03:49.938 --> 03:59.247
+For InternVL2.5 with low-rank adaptation and prefix delivery, accuracy rises from 31.6 to 50.3 percent, and invalid outputs roughly halve.
+
+03:59.247 --> 04:02.080
+BLIP-2 gets worse, and LLaVA is unchanged.
+
+04:02.080 --> 04:06.465
+Strict and relaxed answer parsing give identical primary results.
+
+04:08.700 --> 04:17.272
+The cost weights are also operational choices, so we tested 40 cost specifications: 38 strictly ordered matrices and two non-ordered controls.
+
+04:17.272 --> 04:22.101
+Segmentation stays lowest-cost in every one, and the model rankings stay stable.
+
+04:24.300 --> 04:27.923
+How much measurement error can the segmentation decision tolerate?
+
+04:27.923 --> 04:33.743
+We pushed each degraded reef toward healthy, raising live coral and lowering bleaching by the same amount.
+
+04:33.743 --> 04:41.538
+The smallest shift that turns a degraded reef healthy is 20.08 percentage points, close to the 20-point gap between the live coral thresholds.
+
+04:41.538 --> 04:46.534
+This exceeds the 95th-percentile segmentation errors, but the largest errors can exceed it.
+
+04:48.700 --> 04:50.908
+Decision margins give a second view.
+
+04:50.908 --> 04:57.716
+Correct segmentation decisions sit a median of 8.3 points from a state boundary, and errors only 3 points away.
+
+04:57.716 --> 05:05.198
+But degraded-state errors range up to 66 points from a boundary, so boundary proximity explains only part of the failures.
+
+05:07.400 --> 05:08.609
+Three caveats apply.
+
+05:08.609 --> 05:15.561
+The reference labels and the segmentation decision use the same measurements, so part of its advantage is expected.
+
+05:15.561 --> 05:20.882
+The thresholds and costs are author-defined, and should be calibrated with reef experts.
+
+05:20.882 --> 05:25.960
+And one observed high-cost error does not mean such errors stay rare on other reefs.
+
+05:25.960 --> 05:33.154
+On a server GPU, the segmentation decision takes 79 milliseconds per image, and the full pipeline with LLaVA takes 166.
+
+05:35.400 --> 05:43.377
+In conclusion, an explicit rule on segmentation metrics gives 90.8 percent accuracy and the lowest cost across all tested cost settings.
+
+05:43.377 --> 05:50.416
+The most accurate VLM was not the safest, and none reliably applied the rule, even when given the deciding measurements.
+
+05:50.416 --> 05:55.872
+Use the language model for flexible questions, and explicit logic for rule-defined decisions.
+
+05:58.300 --> 05:59.324
+Thank you for watching.
