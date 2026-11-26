@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/project.css">
 </head>
-<body>
+<body class="project-page">
 
 <nav class="site-nav" aria-label="Main">
   <div class="wrap">
@@ -28,41 +29,50 @@
   </div>
 </nav>
 
-<header class="hero-band paper-band">
-<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<div class="wrap hero-wrap paper-head">
-  <a class="back" href="index.html#publications">All publications</a>
-  <div class="paper-top">
-    <div class="paper-meta">
-      <div class="tags"><span class="tag">Journal</span><span class="tag">Under review</span></div>
-      <h1>SeaQuery: A Metric-Conditioned Vision-Language Framework for Underwater Ecological Monitoring</h1>
-      <p class="authors"><strong>R. ElTobgui</strong>, F. Renda, G. De Masi, J. Dias</p>
-      <p class="venue">IEEE Journal of Oceanic Engineering, MetroSea special issue</p>
-      <p class="paper-sum">Combines segmentation-derived ecological measurements with vision-language inference for coral reef assessment. Evaluates text-prefix (SeaQuery-P) and embedding-level (SeaQuery-F) metric conditioning, LoRA adaptation, ecological metric agreement and cost-sensitive reef-state decisions.</p>
-      <div class="actions"><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/seaworld2026.pdf">Poster (World Ocean Day 2026)</a></div>
-    </div>
-    <figure class="paper-hero-fig"><img src="img/rs-split.jpg" alt="Reef photo that turns into its segmentation overlay along a diagonal split"></figure>
+<header class="project-cover" style="--cover-image: url('/img/rs-split.jpg')">
+  <div class="cover-inner">
+    <h1><span class="project-name">SeaQuery</span> <span class="project-title">A Metric-Conditioned Vision-Language Framework for Underwater Ecological Monitoring</span></h1>
+    <p class="project-venue">IEEE Journal of Oceanic Engineering, MetroSea special issue · <span class="status">Under review</span></p>
+    <p class="project-authors"><strong>R. ElTobgui</strong>, F. Renda, G. De Masi, J. Dias</p>
+    <div class="project-resources"><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/seaworld2026.pdf">Poster (World Ocean Day 2026)</a></div>
   </div>
-</div>
-
+  <nav class="project-contents" aria-label="Paper sections">
+    <a href="#overview">Overview</a>
+    <a href="#video">Video summary</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#qa">Q&amp;A</a>
+  </nav>
 </header>
 
-<main>
-<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
-<h2 class="section-title">Overview</h2>
-<div class="spot paper-spot">
-      <div class="spot-text">
-        <p class="over">SeaQuery extracts five ecological measurements from a segmentation model (live, bleached and dead coral cover, algae cover, and crown-of-thorns starfish count) and supplies them to a vision-language model, either as a text prefix (SeaQuery-P) or fused at the embedding level (SeaQuery-F), with adaptive or full-metric context.</p>
-        <p class="over">Visual question answering is evaluated on 5,158 CoralVQA questions from 1,037 images, across five zero-shot variants from four model families and LoRA-adapted variants (45 configurations). Conditioning improves exact match for four of the five zero-shot variants; PaliGemma2-Mix degrades. LoRA gives the largest absolute gains.</p>
-        <p class="over">On the 392-image Coralscapes test split, metric agreement varies by category. For an author-defined three-state reef rule with asymmetric error costs, the segmentation pathway is the most reliable: it is lowest-cost across all 40 cost specifications and labels one of 160 degraded reefs as healthy.</p>
-        <div class="stats">
-          <div class="stat"><b>60.20%</b><span>VQA exact match</span><small>LLaVA-1.5-7B with full-metric prefix, from 37.44%</small></div>
-          <div class="stat"><b>74.25%</b><span>Best exact match</span><small>InternVL2.5 LoRA, of 45 configurations</small></div>
-          <div class="stat"><b>90.82%</b><span>Reef-state accuracy</span><small>segmentation + explicit rule</small></div>
-        </div>
-      </div>
-      <div class="spot-visual">
-        <figure class="chart">
+<main class="project-story">
+<section class="project-intro" id="overview" aria-label="Overview">
+  <p>SeaQuery measures coral cover in a reef image and gives those measurements to a vision-language model. How much do they improve its answers, and when is it more reliable to apply a reef-state rule directly?</p>
+</section>
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Technical summary</h2>
+<div class="paper-video">
+  <h3 class="video-sub">Full paper summary</h3>
+  <video controls preload="metadata" poster="img/rs-split.jpg">
+    <source src="video/seaquery-joe.mp4" type="video/mp4">
+    <track kind="captions" src="video/seaquery-joe.vtt" srclang="en" label="English" default>
+  </video>
+  <p class="venue">Narrated summary of the article · 5:42. Captions are included in the video.</p>
+</div>
+<div class="paper-video" style="margin-top: 40px">
+  <h3 class="video-sub">Reef-state decision experiment</h3>
+  <video controls preload="none" poster="img/thumb-reefstate.jpg"><source src="video/reefstate.mp4" type="video/mp4"></video>
+  <p class="venue">One experiment from the paper: explicit rules versus vision-language inference · 2:08.</p>
+</div>
+</div></section>
+
+<section class="section project-method" id="method"><div class="wrap">
+  <h2 class="section-title">Conditioning reef assessments on ecological measurements</h2>
+  <div class="project-prose"><p class="over">SeaQuery extracts five ecological measurements from a segmentation model (live, bleached and dead coral cover, algae cover, and crown-of-thorns starfish count) and supplies them to a vision-language model, either as a text prefix (SeaQuery-P) or fused at the embedding level (SeaQuery-F), with adaptive or full-metric context.</p>
+<p class="over">Visual question answering is evaluated on 5,158 CoralVQA questions from 1,037 images, across five zero-shot variants from four model families and LoRA-adapted variants (45 configurations). Conditioning improves exact match for four of the five zero-shot variants; PaliGemma2-Mix degrades. LoRA gives the largest absolute gains.</p>
+<p class="over">On the 392-image Coralscapes test split, metric agreement varies by category. For an author-defined three-state reef rule with asymmetric error costs, the segmentation pathway is the most reliable: it is lowest-cost across all 40 cost specifications and labels one of 160 degraded reefs as healthy.</p></div>
+  <div class="project-figures"><figure class="chart">
           <h4>Reef-state experiment: the three-state rule</h4>
           <p>Healthy: live coral &gt; 30% and bleached &lt; 10%. Degraded: live coral &lt; 10% or bleached &gt; 25%. Stressed: otherwise.</p>
           <svg viewBox="0 0 520 318" role="img" aria-label="Rule map. X axis live-coral cover 0 to 100 percent, Y axis bleached coral 0 to 50 percent. Degraded where live coral is under 10 or bleached over 25. Healthy where live coral is over 30 and bleached under 10. Stressed elsewhere.">
@@ -78,36 +88,30 @@
             <text x="270" y="306" text-anchor="middle">Live-coral cover (%)</text>
             <text x="16" y="140" text-anchor="middle" transform="rotate(-90 16 140)">Bleached coral (%)</text>
           </svg>
-        </figure>
-      </div>
-    </div>
+        </figure></div>
 </div></section>
 
-<section class="section samples-section wavy" id="results"><div class="wrap"><h2 class="section-title">Qualitative results</h2>
+<section class="section samples-section" id="results"><div class="wrap"><h2 class="section-title">Reef-state examples</h2>
+<div class="stats">
+          <div class="stat"><b>60.20%</b><span>VQA exact match</span><small>LLaVA-1.5-7B with full-metric prefix, from 37.44%</small></div>
+          <div class="stat"><b>74.25%</b><span>Best exact match</span><small>InternVL2.5 LoRA, of 45 configurations</small></div>
+          <div class="stat"><b>90.82%</b><span>Reef-state accuracy</span><small>segmentation + explicit rule</small></div>
+        </div>
     <div class="sample-group">
       <h3>Reef-health query: VLM-only versus SeaQuery-P</h3>
       <figure class="sample"><img src="img/q-dashboard.jpg" alt="Dashboard for a Site 23 reef frame: original frame, segmentation overlay, the VLM-only answer, the SeaQuery-P answer, five segmentation metrics and three reef-state labels" loading="lazy" width="1920" height="1080" style="aspect-ratio: auto"><figcaption>Without metrics, the VLM does not commit to an assessment and describes survey equipment. With the metric prefix, SeaQuery-P classifies the reef as healthy, consistent with the reference and segmentation-derived states.</figcaption></figure>
     </div>
 </div></section>
 
-<section class="section" id="video"><div class="wrap">
-<h2 class="section-title">Videos</h2>
-<div class="paper-video">
-  <h3 class="video-sub">Full paper summary</h3>
-  <video controls preload="metadata">
-    <source src="video/seaquery-joe.mp4" type="video/mp4">
-    <track kind="captions" src="video/seaquery-joe.vtt" srclang="en" label="English" default>
-  </video>
-  <p class="venue">Narrated summary of the article · 5:42. Captions are included in the video.</p>
-</div>
-<div class="paper-video" style="margin-top: 40px">
-  <h3 class="video-sub">Reef-state decision experiment</h3>
-  <video controls preload="none" poster="img/thumb-reefstate.jpg"><source src="video/reefstate.mp4" type="video/mp4"></video>
-  <p class="venue">One experiment from the paper: explicit rules versus vision-language inference · 2:08.</p>
-</div>
+<section class="section" id="qa"><div class="wrap">
+  <h2 class="section-title">Questions &amp; answers</h2>
+  <dl class="project-qa">
+    <dt>How does SeaQuery give the language model access to reef measurements?</dt>
+    <dd>SeaQuery-P writes the segmentation measurements into the prompt. SeaQuery-F supplies them as embeddings. Both use estimates of live, bleached and dead coral cover, algae cover and crown-of-thorns starfish count.</dd>
+    <dt>Which approach gave the lowest cost for reef-state decisions?</dt>
+    <dd>On the 392-image evaluation, applying the explicit rule to the segmentation measurements had the lowest cost across all 40 cost specifications. It classified one of the 160 degraded reefs as healthy.</dd>
+  </dl>
 </div></section>
-
-
 </main>
 
 <footer id="contact">

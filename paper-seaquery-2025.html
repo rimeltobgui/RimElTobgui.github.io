@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/project.css">
 </head>
-<body>
+<body class="project-page">
 
 <nav class="site-nav" aria-label="Main">
   <div class="wrap">
@@ -28,40 +29,38 @@
   </div>
 </nav>
 
-<header class="hero-band paper-band">
-<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<div class="wrap hero-wrap paper-head">
-  <a class="back" href="index.html#publications">All publications</a>
-  <div class="paper-top">
-    <div class="paper-meta">
-      <div class="tags"><span class="tag">Conference</span><span class="tag award">Best Paper Award</span></div>
-      <h1>Vision-Language Models for Underwater Ecological Monitoring</h1>
-      <p class="authors"><strong>R. ElTobgui</strong>, S. Iacoponi, S. Javid, F. Renda, G. De Masi, J. Dias</p>
-      <p class="venue">IEEE MetroSea 2025</p>
-      <p class="paper-sum">Introduces SeaQuery, a dual-path framework in which segmentation-derived ecological metrics condition vision-language captioning and question answering.</p>
-      <div class="actions"><a class="btn btn-primary" href="https://doi.org/10.1109/MetroSea66681.2025.11245715">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
-    </div>
-    <figure class="paper-hero-fig"><img src="img/sq25-overlay.jpg" alt="Coral colony with a segmentation overlay: live coral in orange, bleached coral in white"></figure>
+<header class="project-cover" style="--cover-image: url('/img/sq25-overlay.jpg')">
+  <div class="cover-inner">
+    <h1><span class="project-name">SeaQuery</span> <span class="project-title">Vision-Language Models for Underwater Ecological Monitoring</span></h1>
+    <p class="project-venue">IEEE MetroSea 2025 · Best Paper Award</p>
+    <p class="project-authors"><strong>R. ElTobgui</strong>, S. Iacoponi, S. Javid, F. Renda, G. De Masi, J. Dias</p>
+    <div class="project-resources"><a class="btn btn-primary" href="https://doi.org/10.1109/MetroSea66681.2025.11245715">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
   </div>
-</div>
-
+  <nav class="project-contents" aria-label="Paper sections">
+    <a href="#overview">Overview</a>
+    <a href="#video">Video summary</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#cite">BibTeX</a>
+  </nav>
 </header>
 
-<main>
-<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
-<h2 class="section-title">Overview</h2>
-<div class="spot paper-spot">
-      <div class="spot-text">
-        <p class="over">SeaQuery combines a segmentation path and a vision-language path on the same image. Cover of live, bleached and dead coral and algae, and the crown-of-thorns starfish count, are computed from the segmentation mask and supplied to the language model.</p>
-        <p class="over">Captions and answers therefore reference measured quantities and can be verified against the segmentation output.</p>
-        <div class="stats">
-          <div class="stat"><b>95.0%</b><span>Captioning score</span><small>+17.6 over the segmentation path</small></div>
-          <div class="stat"><b>39.8%</b><span>VQA exact match</span><small>+4.8 over the vision-language path</small></div>
-          <div class="stat"><b>R² ≥ 0.77</b><span>Metric agreement</span><small>all five ecological metrics</small></div>
-        </div>
-      </div>
-      <div class="spot-visual">
-        <figure class="fig photo">
+<main class="project-story">
+<section class="project-intro" id="overview" aria-label="Overview">
+  <p>How much live coral is visible, and where is it bleached? SeaQuery pairs reef images with measurements from segmentation so that readers can check the model’s captions and answers against the image.</p>
+</section>
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Technical summary</h2>
+<div class="paper-video"><video controls preload="none" poster="img/thumb-metrosea2025.jpg"><source src="video/metrosea2025.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:07. Captions are included in the video.</p></div>
+</div></section>
+
+<section class="section project-method" id="method"><div class="wrap">
+  <h2 class="section-title">From a reef image to a measurable answer</h2>
+  <div class="project-prose"><p class="over">SeaQuery combines a segmentation path and a vision-language path on the same image. Cover of live, bleached and dead coral and algae, and the crown-of-thorns starfish count, are computed from the segmentation mask and supplied to the language model.</p>
+<p class="over">Captions and answers therefore reference measured quantities and can be verified against the segmentation output.</p></div>
+  <div class="project-figures"><figure class="fig photo">
           <div class="pair">
             <figure><img src="img/sq-reef.jpg" alt="Underwater photo of a coral colony with pale and bleached patches" loading="lazy" width="1194" height="530"><span>Input image</span></figure>
             <figure><img src="img/sq-overlay.jpg" alt="The same coral colony with a segmentation overlay: live coral in orange, bleached coral in white" loading="lazy" width="1194" height="530"><span>Segmentation overlay</span></figure>
@@ -78,12 +77,15 @@
             <div class="bubble a">Sure, the reef is considered healthy with a high coral cover of 70.55%.</div>
           </div>
           <figcaption>Example from the SeaQuery interface in the paper.</figcaption>
-        </figure>
-      </div>
-    </div>
+        </figure></div>
 </div></section>
 
-<section class="section samples-section wavy" id="results"><div class="wrap"><h2 class="section-title">Qualitative results</h2>
+<section class="section samples-section" id="results"><div class="wrap"><h2 class="section-title">Reef-image comparisons</h2>
+<div class="stats">
+          <div class="stat"><b>95.0%</b><span>Captioning score</span><small>+17.6 over the segmentation path</small></div>
+          <div class="stat"><b>39.8%</b><span>VQA exact match</span><small>+4.8 over the vision-language path</small></div>
+          <div class="stat"><b>R² ≥ 0.77</b><span>Metric agreement</span><small>all five ecological metrics</small></div>
+        </div>
     <div class="sample-group">
       <h3>Vision-language answers with and without metric conditioning</h3>
       <div class="sample-grid two">
@@ -112,12 +114,17 @@
     </div>
 </div></section>
 
-<section class="section" id="video"><div class="wrap">
-<h2 class="section-title">Video</h2>
-<div class="paper-video"><video controls preload="none" poster="img/thumb-metrosea2025.jpg"><source src="video/metrosea2025.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:07. Captions are included in the video.</p></div>
+<section class="section" id="qa"><div class="wrap">
+  <h2 class="section-title">Questions &amp; answers</h2>
+  <dl class="project-qa">
+    <dt>Where do the percentages in an answer come from?</dt>
+    <dd>SeaQuery calculates coral and algae cover from the segmentation mask. The language model receives those values alongside the reef image when generating an answer.</dd>
+    <dt>Do the two examples in Figure 5 show the same reef?</dt>
+    <dd>Each panel shows a different reef image. The examples illustrate how the answers are phrased with and without metric conditioning. The aggregate captioning and question-answering scores summarize performance across examples.</dd>
+  </dl>
 </div></section>
 
-<section class="section" id="cite" style="padding-top: 24px"><div class="wrap"><h2 class="section-title">Cite</h2>
+<section class="section" id="cite"><div class="wrap"><h2 class="section-title">Cite this paper</h2>
 <div class="bibbox"><pre>@inproceedings{eltobgui2025seaquery,
   title     = {Vision-Language Models for Underwater Ecological Monitoring},
   author    = {ElTobgui, Rim and Iacoponi, Saverio and Javid, Sajid and Renda, Federico and De Masi, Giulia and Dias, Jorge},

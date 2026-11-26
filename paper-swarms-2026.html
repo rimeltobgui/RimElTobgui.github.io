@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/project.css">
 </head>
-<body>
+<body class="project-page">
 
 <nav class="site-nav" aria-label="Main">
   <div class="wrap">
@@ -28,40 +29,39 @@
   </div>
 </nav>
 
-<header class="hero-band paper-band">
-<div class="rays" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<div class="wrap hero-wrap paper-head">
-  <a class="back" href="index.html#publications">All publications</a>
-  <div class="paper-top">
-    <div class="paper-meta">
-      <div class="tags"><span class="tag">Journal</span><span class="tag">2026</span></div>
-      <h1>Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach</h1>
-      <p class="authors"><strong>R. ElTobgui</strong>, S. Iacoponi, F. Renda, G. De Masi, J. Dias</p>
-      <p class="venue">IEEE Journal of Oceanic Engineering, 2026</p>
-      <p class="paper-sum">Monocular detection, tracking and keypoint-based relative localization for H-SURF robotic fish, validated against motion capture and deployed on a Raspberry Pi 4.</p>
-      <div class="actions"><a class="btn btn-primary" href="https://doi.org/10.1109/JOE.2026.3678798">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/iros2024.pdf">Poster (IROS 2024)</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
-    </div>
-    <figure class="paper-hero-fig"><img src="img/hsurf-render-2.jpg" alt="Illustration of two H-SURF robots over a coral reef"><figcaption>Two H-SURF robots (illustration).</figcaption></figure>
+<header class="project-cover" style="--cover-image: url('/img/hsurf-render-2.jpg')">
+  <div class="cover-inner">
+    <h1><span class="project-name">Underwater Robotic Swarms</span> <span class="project-title">Lightweight Visual Tracking and Relative Localization Approach</span></h1>
+    <p class="project-venue">IEEE Journal of Oceanic Engineering, 2026</p>
+    <p class="project-authors"><strong>R. ElTobgui</strong>, S. Iacoponi, F. Renda, G. De Masi, J. Dias</p>
+    <div class="project-resources"><a class="btn btn-primary" href="https://doi.org/10.1109/JOE.2026.3678798">Paper (DOI)</a><a class="btn btn-ghost" href="#video">Video</a><a class="btn btn-ghost" href="posters/iros2024.pdf">Poster (IROS 2024)</a><a class="btn btn-ghost" href="#cite">Cite</a></div>
   </div>
-</div>
-
+  <p class="cover-credit">Two H-SURF robots (illustration).</p>
+  <nav class="project-contents" aria-label="Paper sections">
+    <a href="#overview">Overview</a>
+    <a href="#video">Video summary</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#cite">BibTeX</a>
+  </nav>
 </header>
 
-<main>
-<section class="section" id="overview" style="padding-top: 40px"><div class="wrap">
-<h2 class="section-title">Overview</h2>
-<div class="spot paper-spot">
-      <div class="spot-text">
-        <p class="over">Each H-SURF robotic fish carries a monocular camera and a Raspberry Pi 4. The pipeline detects and tracks neighbouring agents and estimates body keypoints. A closed-form geometric model converts the keypoints into relative depth and heading without GPS or acoustic communication.</p>
-        <p class="over">Estimates are validated in a pool against OptiTrack motion capture, and the models are converted and quantized for onboard execution.</p>
-        <div class="stats">
-          <div class="stat"><b>17.18°</b><span>Mean heading error</span><small>within 1.5 m</small></div>
-          <div class="stat"><b>24.45 cm</b><span>Mean depth error</span><small>within 1.5 m</small></div>
-          <div class="stat"><b>2.06 FPS</b><span>Tracking on a Raspberry Pi 4</span><small>ONNX, YOLOv5n + ByteTrack</small></div>
-        </div>
-      </div>
-      <div class="spot-visual">
-        <figure class="fig">
+<main class="project-story">
+<section class="project-intro" id="overview" aria-label="Overview">
+  <p>An H-SURF robotic fish uses a single onboard camera to track its neighbours and estimate their relative depth and heading. Pool experiments compare those estimates with motion capture.</p>
+</section>
+
+<section class="section" id="video"><div class="wrap">
+<h2 class="section-title">Technical summary</h2>
+<div class="paper-video"><video controls preload="none" poster="img/thumb-joe2026.jpg"><source src="video/joe2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:41. Captions are included in the video.</p></div>
+</div></section>
+
+<section class="section project-method" id="method"><div class="wrap">
+  <h2 class="section-title">Estimating a neighbour’s position with one camera</h2>
+  <div class="project-prose"><p class="over">Each H-SURF robotic fish carries a monocular camera and a Raspberry Pi 4. The pipeline detects and tracks neighbouring agents and estimates body keypoints. A closed-form geometric model converts the keypoints into relative depth and heading without GPS or acoustic communication.</p>
+<p class="over">Estimates are validated in a pool against OptiTrack motion capture, and the models are converted and quantized for onboard execution.</p></div>
+  <div class="project-figures"><figure class="fig">
           <img src="img/loc-geom.png" alt="Diagram of an observer camera viewing a robotic fish, with aperture angle, keypoint distances and real height used to compute depth" loading="lazy" width="620" height="436">
           <figcaption>Depth and heading come from keypoint geometry and the camera's field of view.</figcaption>
         </figure>
@@ -76,12 +76,15 @@
             <g class="row"><title>TFLite Float32: 1.13 FPS</title><text x="120" y="151" text-anchor="end">TFLite F32</text><rect class="bar" x="132" y="132" width="155" height="28" rx="4"/><text class="val" x="295" y="151">1.13</text></g>
             <g class="row"><title>TFLite Int8: 1.79 FPS</title><text x="120" y="193" text-anchor="end">TFLite Int8</text><rect class="bar" x="132" y="174" width="246" height="28" rx="4"/><text class="val" x="386" y="193">1.79</text></g>
           </svg>
-        </figure>
-      </div>
-    </div>
+        </figure></div>
 </div></section>
 
-<section class="section samples-section wavy" id="results"><div class="wrap"><h2 class="section-title">Qualitative results</h2>
+<section class="section samples-section" id="results"><div class="wrap"><h2 class="section-title">Tracking and localization</h2>
+<div class="stats">
+          <div class="stat"><b>17.18°</b><span>Mean heading error</span><small>within 1.5 m</small></div>
+          <div class="stat"><b>24.45 cm</b><span>Mean depth error</span><small>within 1.5 m</small></div>
+          <div class="stat"><b>2.06 FPS</b><span>Tracking on a Raspberry Pi 4</span><small>ONNX, YOLOv5n + ByteTrack</small></div>
+        </div>
     <div class="sample-group">
       <h3>Multi-object tracking of H-SURF agents</h3>
       <div class="sample-grid two">
@@ -97,12 +100,17 @@
     </div>
 </div></section>
 
-<section class="section" id="video"><div class="wrap">
-<h2 class="section-title">Video</h2>
-<div class="paper-video"><video controls preload="none" poster="img/thumb-joe2026.jpg"><source src="video/joe2026.mp4" type="video/mp4"></video><p class="venue">Narrated summary · 5:41. Captions are included in the video.</p></div>
+<section class="section" id="qa"><div class="wrap">
+  <h2 class="section-title">Questions &amp; answers</h2>
+  <dl class="project-qa">
+    <dt>How were the position estimates checked?</dt>
+    <dd>Pool experiments compared camera-based estimates with OptiTrack motion capture. Within 1.5 m, the mean heading error was 17.18° and the mean depth error was 24.45 cm.</dd>
+    <dt>When does the keypoint geometry become unreliable?</dt>
+    <dd>The examples show two difficult views. An oblique angle makes the LED keypoints ambiguous, while a near-frontal view combines reflections with low contrast.</dd>
+  </dl>
 </div></section>
 
-<section class="section" id="cite" style="padding-top: 24px"><div class="wrap"><h2 class="section-title">Cite</h2>
+<section class="section" id="cite"><div class="wrap"><h2 class="section-title">Cite this paper</h2>
 <div class="bibbox"><pre>@article{eltobgui2026swarms,
   title   = {Underwater Robotic Swarms: Lightweight Visual Tracking and Relative Localization Approach},
   author  = {ElTobgui, Rim and Iacoponi, Saverio and Renda, Federico and De Masi, Giulia and Dias, Jorge},
